@@ -3,6 +3,7 @@ import "./home.scss";
 import { Navbar } from "../../components/navbar/Navbar";
 import { Header } from "../../components/header/Header";
 import { About } from "../../components/About/About";
+import { Footer } from "../../components/footer/Footer";
 
 export const Home = () => {
   return (
@@ -10,6 +11,7 @@ export const Home = () => {
       <Navbar />
       <Header />
       <About />
+      <Footer/>
     </div>
   );
 };
