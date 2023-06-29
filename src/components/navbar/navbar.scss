@@ -1,0 +1,47 @@
+.navbar {
+  height: 60px;
+  padding: 0.5rem 1.5rem;
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .nav-left {
+      .logo {
+        display: flex;
+        align-items: center;
+        .edu-logo {
+          height: 15%;
+          width: 15%;
+        }
+      }
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      font-size: 17px;
+      font-family: sans-serif;
+
+      .nav-option {
+        cursor: pointer;
+        border-bottom: 4px solid white;
+        &:hover {
+          border-bottom: 4px solid rgba(252, 198, 89, 1);
+        }
+
+        &.log-in {
+          margin-left: 5rem;
+        }
+      }
+      button {
+        background-color: rgba(49, 49, 49, 1);
+        color: white;
+        border-radius: 5px;
+        padding: 8px 15px;
+        cursor: pointer;
+        border: none;
+      }
+    }
+  }
+}

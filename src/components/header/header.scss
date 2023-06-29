@@ -1,0 +1,110 @@
+.header {
+  min-height: 100vh;
+  background-image: url("../../../public/images/Rectangle\ 500.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgb(255, 255, 192);
+  display: flex;
+  justify-content: center;
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    width: 1024px;
+
+    .header-top {
+      margin-top: 50px;
+      padding: 20px;
+      font-family: sans-serif; //poppins
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h1 {
+        font-weight: 700;
+        font-size: 2.8rem;
+
+        span {
+          color: rgba(252, 198, 89, 1);
+        }
+
+        &.header-top-wallet {
+          margin-bottom: 20px;
+        }
+      }
+      p {
+        margin-bottom: 40px;
+        font-weight: 500;
+      }
+      button {
+        cursor: pointer;
+        background-color: rgba(49, 49, 49, 1);
+        color: white;
+        border-radius: 5px;
+        padding: 10px 40px;
+        border: none;
+      }
+    }
+    .header-middle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 80%;
+        height: 80%;
+      }
+    }
+    .header-bottom {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      .header-bottom-card {
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 10px 4px 26px 0px rgba(0, 0, 0, 0.171);
+        box-shadow: -11px 4px 33px 0px rgba(0, 0, 0, 0.315);
+        padding: 10px;
+        width: 33%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 40px;
+        gap: 13px;
+        img {
+          width: 100px;
+          height: 100px;
+        }
+        p {
+          letter-spacing: 2px;
+        }
+        .card-arrow {
+          display: flex;
+          justify-content: flex-end;
+          .a1 {
+            background-color: #fcc659;
+            border-radius: 50%;
+            padding: 10px 12px;
+            color: white;
+          }
+        }
+      }
+      .header-bottom-desc {
+        width: 33%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        border-right: 3px solid rgba(252, 198, 89, 1);
+
+        h2 {
+          span {
+            color: #fcc659;
+          }
+        }
+      }
+    }
+  }
+}
