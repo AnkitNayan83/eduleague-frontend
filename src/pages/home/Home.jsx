@@ -4,6 +4,9 @@ import { Navbar } from "../../components/navbar/Navbar";
 import { Header } from "../../components/header/Header";
 import { About } from "../../components/About/About";
 import { Footer } from "../../components/footer/Footer";
+import { MobileAdd } from "../../components/mobileAdd/MobileAdd";
+import { Faq } from "../../components/faq/Faq";
+import { Newsletter } from "../../components/newsletter/Newsletter";
 
 export const Home = () => {
   return (
@@ -11,7 +14,10 @@ export const Home = () => {
       <Navbar />
       <Header />
       <About />
-      <Footer/>
+      <MobileAdd />
+      <Faq />
+      <Newsletter />
+      <Footer />
     </div>
   );
 };

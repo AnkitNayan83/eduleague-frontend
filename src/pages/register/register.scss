@@ -1,0 +1,122 @@
+.register {
+  background-image: url("../../../public/images/bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  .nav {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 20px;
+
+    .p-ar {
+      font-size: 40px;
+    }
+  }
+  .register-container {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 120px);
+    .register-card {
+      height: 100%;
+      width: 90%;
+      background: white;
+      border-radius: 10px;
+      display: flex;
+      .left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 60px 50px;
+        gap: 40px;
+        .l-top {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .l-bottom {
+          display: flex;
+          justify-content: flex-end;
+          img {
+            height: 350px;
+            width: 350px;
+            margin-right: 60px;
+          }
+        }
+      }
+      .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 20px;
+        .r-top {
+          margin-top: 20px;
+          width: 80%;
+          display: flex;
+          justify-content: flex-end;
+          span {
+            color: red;
+          }
+        }
+        .r-middle {
+          width: 90%;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          margin-top: 30px;
+
+          .form-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            label {
+              color: black;
+            }
+            input {
+              width: 100%;
+              padding: 15px 10px;
+              border-radius: 10px;
+              border: 1px solid rgba(10, 14, 67, 0.235);
+            }
+          }
+          .form-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 500;
+
+            .form-rem {
+              display: flex;
+              align-items: center;
+              gap: 7px;
+            }
+          }
+          .signIn {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+          }
+        }
+        .r-bottom {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          font-weight: 400;
+          strong {
+            color: red;
+          }
+        }
+      }
+    }
+  }
+}

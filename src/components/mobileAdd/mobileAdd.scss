@@ -1,0 +1,55 @@
+.mobileAdd {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .container {
+    width: 1024px;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-betweens;
+
+    .left {
+      flex: 1;
+      .img-wrapper {
+        background-color: #fcc659;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        width: 300px;
+        img {
+          height: 500px;
+          width: 500px;
+        }
+      }
+    }
+    .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+
+      h4 {
+        color: rgba(252, 198, 89, 1);
+        font-size: 18px;
+      }
+      h2 {
+        font-size: 30px;
+      }
+      .store-logo {
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+        margin-top: 10px;
+
+        img {
+          width: 30%;
+        }
+      }
+    }
+  }
+}
