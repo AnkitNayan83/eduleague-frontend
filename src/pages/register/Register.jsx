@@ -1,12 +1,15 @@
 import React from "react";
 import "./register.scss";
 import { ArrowBackIos, NavigateNext } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 export const Register = () => {
   return (
     <div className="register">
       <div className="nav">
-        <ArrowBackIos className="p-ar" />
+        <Link to="/">
+          <ArrowBackIos className="p-ar" />
+        </Link>
         <span>Home</span>
         <NavigateNext className="n-ar" />
         <span>Register</span>
@@ -48,7 +51,10 @@ export const Register = () => {
             </div>
             <div className="r-bottom">
               <span>
-                Already have an account? <strong>Sign in</strong>
+                Already have an account?{" "}
+                <Link to="/login">
+                  <strong>Sign in</strong>{" "}
+                </Link>
               </span>
             </div>
           </div>

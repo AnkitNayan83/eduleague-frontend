@@ -1,12 +1,15 @@
 import { ArrowBackIos, NavigateNext } from "@mui/icons-material";
 import React from "react";
 import "./login.scss";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
   return (
     <div className="login">
       <div className="nav">
-        <ArrowBackIos className="p-ar" />
+        <Link to="/">
+          <ArrowBackIos className="p-ar" />
+        </Link>
         <span>Home</span>
         <NavigateNext className="n-ar" />
         <span>Login</span>
@@ -25,7 +28,10 @@ export const Login = () => {
           <div className="right">
             <div className="r-top">
               <h4>
-                Dont have an account? <span>Create</span>
+                Dont have an account?{" "}
+                <Link to="/register">
+                  <span>Create</span>
+                </Link>
               </h4>
             </div>
             <div className="r-middle">
