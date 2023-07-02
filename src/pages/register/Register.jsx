@@ -2,10 +2,40 @@ import React from "react";
 import "./register.scss";
 import { ArrowBackIos, NavigateNext } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 export const Register = () => {
   return (
     <div className="register">
+      <Helmet>
+        <title>{"Eduleague | Register"}</title>
+        <meta
+          name="description"
+          content={
+            "Eduleague is a quiz game where you can earn money by playing quiz"
+          }
+        />
+        <meta property="og:title" content={"Eduleague | Register"} />
+        <meta
+          property="og:description"
+          content={
+            "Eduleague is a quiz game where you can earn money by playing quiz"
+          }
+        />
+        <meta property="og:image" content={"./images/logo.png"} />
+        <meta property="og:url" content={"URL of your page"} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content={"Eduleague | Register"} />
+        <meta
+          name="twitter:description"
+          content={
+            "Eduleague is a quiz game where you can earn money by playing quiz"
+          }
+        />
+        <meta name="twitter:image" content={"./images/logo.png"} />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
       <div className="nav">
         <Link to="/">
           <ArrowBackIos className="p-ar" />

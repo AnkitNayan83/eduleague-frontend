@@ -6,7 +6,7 @@ import { Close } from "@mui/icons-material";
 
 export const Navbar = () => {
   const navigate = useNavigate();
-  const user = true;
+  const user = false;
   const [showMenu, setShowMenu] = useState(false);
   return (
     <div className="navbar">
