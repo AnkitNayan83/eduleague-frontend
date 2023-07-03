@@ -12,6 +12,7 @@ import { PublicRoute } from "./components/routes/PublicRoute";
 import "react-toastify/dist/ReactToastify.css";
 import { NoUserRoute } from "./components/routes/NoUserRoute";
 import { PrivateRoute } from "./components/routes/PrivateRoute";
+import { CreateQuiz } from "./pages/createQuiz/CreateQuiz";
 
 function App() {
   return (
@@ -65,6 +66,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <Wallet />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/createQuiz"
+              element={
+                <PrivateRoute>
+                  <CreateQuiz />
                 </PrivateRoute>
               }
             />

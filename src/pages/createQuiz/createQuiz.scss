@@ -1,0 +1,114 @@
+.createQuiz {
+  height: 100vh;
+  background-image: url("../../../public/images/bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow-x: hidden;
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    .container {
+      background-color: rgba(98, 69, 163, 1);
+      color: white;
+      padding: 40px 20px;
+      display: flex;
+      width: 1024px;
+      border-radius: 10px;
+      .left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        h1 {
+          border-left: 6px solid rgba(252, 198, 89, 1);
+          padding-left: 8px;
+        }
+        p {
+          word-spacing: 5px;
+          margin-top: 40px;
+        }
+      }
+      .right {
+        flex: 2;
+        display: flex;
+        padding-bottom: 10px;
+        flex-direction: column;
+        align-items: center;
+        .options {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          select {
+            padding: 10px;
+            width: 80%;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: black;
+          }
+        }
+        .price {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          .price-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            flex: 1;
+            .price-top {
+              font-size: 20px;
+              font-weight: 600;
+            }
+            .price-counter {
+              padding: 10px;
+              background-color: rgb(143, 100, 236);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 5px;
+              gap: 35px;
+              width: 70%;
+              margin-top: 15px;
+
+              span {
+                font-weight: 600;
+                font-size: 18px;
+              }
+
+              .price-icon {
+                padding: 5px;
+                border: 1px solid white;
+                border-radius: 5px;
+                background-color: black;
+                color: white;
+              }
+            }
+          }
+          .price-right {
+            flex: 1;
+            font-size: 18px;
+            font-weight: 600;
+          }
+        }
+        .create-btn {
+          padding: 10px;
+          width: 20%;
+          margin-top: 20px;
+          border-radius: 20px;
+          background-color: rgba(250, 128, 64, 1);
+          border: none;
+          box-shadow: 5px 5px 10px rgb(35, 35, 35);
+        }
+      }
+    }
+  }
+}
