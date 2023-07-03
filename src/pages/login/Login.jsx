@@ -1,9 +1,43 @@
 import { ArrowBackIos, NavigateNext } from "@mui/icons-material";
-import React from "react";
+import React, { useState } from "react";
 import "./login.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { toast } from "react-toastify";
+import { axiosRequest } from "../../axiosInstance";
+import { useDispatch, useSelector } from "react-redux";
+import { hideLoading, showLoading } from "../../redux/slice/alertSlice";
+import { HashLoader } from "react-spinners";
+
 export const Login = () => {
+  const [phoneNo, setPhoneNo] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const loading = useSelector((state) => state.alerts.loading);
+
+  const handelLogin = async () => {
+    try {
+      dispatch(showLoading());
+      const { data } = await axiosRequest.post("/auth/login", {
+        phoneNo,
+        password,
+      });
+      dispatch(hideLoading());
+      if (data.success) {
+        localStorage.setItem("token", data.token);
+        navigate("/");
+        toast.success("logged in successfully");
+      }
+    } catch (error) {
+      dispatch(hideLoading());
+      console.log(error);
+      toast.error("wrong mobile number or password");
+    }
+  };
+
   return (
     <div className="login">
       <Helmet>
@@ -34,6 +68,12 @@ export const Login = () => {
         <meta name="twitter:image" content={"./images/logo.png"} />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
+      {loading && (
+        <div className="spinner">
+          <HashLoader color="#333" />
+          <span>Loading Please wait</span>
+        </div>
+      )}
       <div className="nav">
         <Link to="/">
           <ArrowBackIos className="p-ar" />
@@ -65,11 +105,19 @@ export const Login = () => {
             <div className="r-middle">
               <div className="form-item">
                 <label htmlFor="phone">Phone no</label>
-                <input type="text" id="phone" />
+                <input
+                  onChange={(e) => setPhoneNo(e.target.value)}
+                  type="text"
+                  id="phone"
+                />
               </div>
               <div className="form-item">
                 <label htmlFor="password">Password</label>
-                <input type="password" id="apssword" />
+                <input
+                  type="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  id="apssword"
+                />
               </div>
               <div className="form-info">
                 <div className="form-rem">
@@ -78,7 +126,9 @@ export const Login = () => {
                 </div>
                 <div className="form-fog">forgot password?</div>
               </div>
-              <button className="signIn">Sign up</button>
+              <button className="signIn" onClick={handelLogin}>
+                Sign up
+              </button>
             </div>
             <div className="r-bottom">
               <span>or</span>

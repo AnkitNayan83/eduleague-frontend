@@ -3,11 +3,23 @@ import { Link, useNavigate } from "react-router-dom";
 import "./navbar.scss";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Close } from "@mui/icons-material";
+import { useDispatch, useSelector } from "react-redux";
+import { removeUser } from "../../redux/slice/authSlice";
+import { toast } from "react-toastify";
 
 export const Navbar = () => {
   const navigate = useNavigate();
-  const user = false;
+  const user = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+
+  const handelLogOut = () => {
+    localStorage.clear();
+    dispatch(removeUser());
+    toast.success("logged out successfully");
+    navigate("/login");
+  };
+
   return (
     <div className="navbar">
       <div className="nav-container">
@@ -33,10 +45,12 @@ export const Navbar = () => {
           </div>
           <div className="nav-option">FAQ</div>
           {user && (
-            <div className="nav-wallet">
-              <span>1000</span>
-              <img src="./images/wallet.png" alt="" />
-            </div>
+            <Link to={"/wallet"}>
+              <div className="nav-wallet">
+                <span>{user?.balance}</span>
+                <img src="./images/wallet.png" alt="" />
+              </div>
+            </Link>
           )}
           {user && (
             <div className="nav-menu">
@@ -63,10 +77,14 @@ export const Navbar = () => {
           <div className="left">
             <img src="./images/prof.png" alt="" />
           </div>
-          <div className="right">
-            <span className="name-info">Ankit Nayan</span>
-            <span className="mob-info">9988776655</span>
-          </div>
+          <Link to={"/editProfile"}>
+            <div className="right">
+              <span className="name-info">
+                {user?.fName + " " + user?.lName}
+              </span>
+              <span className="mob-info">{user?.phoneNo}</span>
+            </div>
+          </Link>
         </div>
         <div className="nav-quiz-info">
           <div className="left">
@@ -84,7 +102,9 @@ export const Navbar = () => {
           <div className="menu-option">About Us</div>
           <div className="menu-option">FAQ</div>
           <div className="menu-option">Help and Support</div>
-          <div className="menu-option">Privacy Policy &TC</div>
+          <div className="menu-option" onClick={handelLogOut}>
+            Log out
+          </div>
         </div>
       </div>
     </div>

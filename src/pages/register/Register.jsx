@@ -1,10 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import "./register.scss";
 import { ArrowBackIos, NavigateNext } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import validator from "validator";
+import { axiosRequest } from "../../axiosInstance";
+import { useDispatch, useSelector } from "react-redux";
+import { hideLoading, showLoading } from "../../redux/slice/alertSlice";
+import { HashLoader } from "react-spinners";
 
 export const Register = () => {
+  const [fName, setFname] = useState("");
+  const [lName, setLName] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
+  const [password, setPassword] = useState("");
+  const [referral, setReferral] = useState("");
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const loading = useSelector((state) => state.alerts.loading);
+
+  const handelRegister = async () => {
+    if (!validator.isMobilePhone(phoneNo)) {
+      alert("Enter a valid mobile number");
+      return;
+    } else if (phoneNo.length !== 10) {
+      alert("Enter a 10 digit valid mobile number");
+      return;
+    } else {
+      try {
+        dispatch(showLoading());
+        const { data } = await axiosRequest.post("/auth/register", {
+          fName,
+          lName,
+          phoneNo,
+          password,
+          referral,
+        });
+        dispatch(hideLoading());
+        if (data.success) {
+          localStorage.setItem("token", data.user.token);
+          navigate("/");
+        }
+      } catch (error) {
+        dispatch(hideLoading());
+        console.log(error);
+      }
+    }
+  };
+
   return (
     <div className="register">
       <Helmet>
@@ -36,6 +80,13 @@ export const Register = () => {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
+      {loading && (
+        <div className="spinner">
+          <HashLoader color="#333" />
+          <span>Loading Please wait</span>
+        </div>
+      )}
+
       <div className="nav">
         <Link to="/">
           <ArrowBackIos className="p-ar" />
@@ -59,25 +110,50 @@ export const Register = () => {
             <div className="r-middle">
               <div className="form-item">
                 <label htmlFor="fName">First Name</label>
-                <input type="text" id="fName" />
+                <input
+                  onChange={(e) => setFname(e.target.value)}
+                  type="text"
+                  id="fName"
+                />
               </div>
               <div className="form-item">
                 <label htmlFor="lNmae">Last Name</label>
-                <input type="text" id="lName" />
+                <input
+                  onChange={(e) => setLName(e.target.value)}
+                  type="text"
+                  id="lName"
+                />
               </div>
               <div className="form-item">
                 <label htmlFor="phone">Phone no</label>
-                <input type="text" id="phone" />
+                <input
+                  onChange={(e) => setPhoneNo(e.target.value)}
+                  type="text"
+                  id="phone"
+                />
               </div>
               <div className="form-item">
                 <label htmlFor="password">Password</label>
-                <input type="password" id="password" />
+                <input
+                  onChange={(e) => setPassword(e.target.value)}
+                  type="password"
+                  id="password"
+                />
               </div>
               <div className="form-item">
-                <label htmlFor="cPassword">Confirm Password</label>
-                <input type="password" id="cPassword" />
+                <label htmlFor="cPassword">
+                  Referral Code{" "}
+                  <small>(You and your friend both will get +25 coins)</small>
+                </label>
+                <input
+                  onChange={(e) => setReferral(e.target.value)}
+                  type="text"
+                  id="cPassword"
+                />
               </div>
-              <button className="signIn">Register</button>
+              <button className="signIn" onClick={handelRegister}>
+                Register
+              </button>
             </div>
             <div className="r-bottom">
               <span>

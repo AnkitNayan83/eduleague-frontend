@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import AboutUs from "./pages/aboutUs/AboutUs";
 import { Home } from "./pages/home/Home";
@@ -7,19 +7,69 @@ import { Login } from "./pages/login/Login";
 import { Profile } from "./pages/profile/Profile";
 import { Wallet } from "./pages/wallet/Wallet";
 import { HelmetProvider } from "react-helmet-async";
+import { ToastContainer } from "react-toastify";
+import { PublicRoute } from "./components/routes/PublicRoute";
+import "react-toastify/dist/ReactToastify.css";
+import { NoUserRoute } from "./components/routes/NoUserRoute";
+import { PrivateRoute } from "./components/routes/PrivateRoute";
 
 function App() {
   return (
     <HelmetProvider>
       <div className="App">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/editProfile" element={<Profile />} />
-          <Route path="/wallet" element={<Wallet />} />
-        </Routes>
+        <BrowserRouter>
+          <ToastContainer />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <PublicRoute>
+                  <Home />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <PublicRoute>
+                  <AboutUs />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <NoUserRoute>
+                  <Login />
+                </NoUserRoute>
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <NoUserRoute>
+                  <Register />
+                </NoUserRoute>
+              }
+            />
+            <Route
+              path="/editProfile"
+              element={
+                <PrivateRoute>
+                  <Profile />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/wallet"
+              element={
+                <PrivateRoute>
+                  <Wallet />
+                </PrivateRoute>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
       </div>
     </HelmetProvider>
   );
