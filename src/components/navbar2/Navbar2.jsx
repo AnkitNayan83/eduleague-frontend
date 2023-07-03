@@ -50,19 +50,19 @@ export const Navbar2 = () => {
           </div>
         </div>
         <div className="nav-quiz-info">
-          <div className="left">
+          <div className="left" onClick={()=> navigate("/joinQuiz")}>
             <small>create</small> <strong>quiz</strong>
           </div>
-          <div className="right">
+          <div className="right" onClick={()=> navigate('/createQuiz')}>
             <small>join</small> <strong>quiz</strong>
           </div>
         </div>
         <div className="nav-menu-options">
           <div className="menu-option">Profile and KYC</div>
-          <div className="menu-option">Wallet</div>
+          <div className="menu-option" onClick={()=> navigate('/wallet')}>Wallet</div>
           <div className="menu-option">Analyse</div>
           <div className="menu-option">Leaderboard</div>
-          <div className="menu-option">About Us</div>
+          <div className="menu-option" onClick={()=> navigate('/about')}>About Us</div>
           <div className="menu-option">FAQ</div>
           <div className="menu-option">Help and Support</div>
           <div className="menu-option">Privacy Policy &TC</div>
