@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import "./wallet.scss";
 import { Helmet } from "react-helmet-async";
+import { Transaction } from "../../components/trasaction/Transaction";
+import {Navbar2} from "../../components/navbar2/Navbar2"
 export const Wallet = () => {
   const [wallet, setWallet] = useState(true);
   return (
+    <div className="wallet-container">
+    <Navbar2/>
+
     <div className="wallet-wrapper">
       <Helmet>
         <title>{"Eduleague | Wallet"}</title>
@@ -33,7 +38,6 @@ export const Wallet = () => {
         <meta name="twitter:image" content={"./images/logo.png"} />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
-
       <div className="wallet-container">
         <div className="left-part">
           <h5
@@ -67,19 +71,13 @@ export const Wallet = () => {
         ) : (
           <>
             <div className="right-part2">
-              <div className="transaction-conatiner">
-                <div className="left">
-                  <h4>English</h4>
-                  <p className="date">22/02/23</p>
-                </div>
-                <div className="right">
-                  <h2>₹50</h2>
-                </div>
-              </div>
+                <Transaction/>
+                <Transaction/>
             </div>
           </>
         )}
       </div>
+    </div>
     </div>
   );
 };

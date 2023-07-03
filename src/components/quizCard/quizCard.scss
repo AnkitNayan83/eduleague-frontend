@@ -1,0 +1,106 @@
+.card-component{
+    margin: 1.4rem;
+    padding: 2rem;
+    color:#FFFFFF;
+    display: flex;
+    background-color: #6245A3;
+    align-items: center;
+    justify-content: space-between;
+    border-radius:15px ;
+    position: relative;
+    overflow: hidden;
+    .left-side{
+        h4{
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-block: 1.1rem;
+        }
+        h5{
+            font-size: 1rem;
+        }
+        .topic{
+            color: white;
+            background-color: #312350;
+            width: 720%;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+        .lower-part{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap:10px;
+            h3{
+                font-size: 1.4rem;
+                color: #FCC659;
+            }
+            h4{
+                font-size: .9rem;
+            }
+        }
+    }
+    .right-side{
+        .right-block{
+            position: absolute;
+            top:0;
+            right: 0;
+            h4{
+                margin: 0;
+            }
+            background-color:#312350;
+            padding: 12px 20px;
+            border-radius: 5px;
+        }
+        h5{
+            color:#FCC659;
+            font-size: 0.7rem;
+            margin-top: 30px;
+        }
+        .topic{
+            color: white;
+            font-size: 1rem;
+            // background-color: #312350;
+            // padding: 20px;
+            // border-radius: 10px;
+            // font-size: 1rem;
+        }
+        .lower-part{
+            // padding-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap:10px;
+            margin-bottom: 1rem;
+            h3{
+                font-size: 1.4rem;
+                color: #FCC659;
+            }
+            h4{
+                font-size: .9rem;
+            }
+        }
+        .h3-bottom{
+            margin-block: 1rem;
+        }
+        .btn-container{
+            margin-block: 2rem;
+            .btn-join{
+            
+                position: absolute;
+               
+                left: 38rem;
+                // padding: 1rem 3rem;
+                // background-color: #FCC659;
+                background: linear-gradient(#FCC659 ,#FA8040 );
+                padding: 20px 80px;
+                border-radius: 40px;
+                bottom: 10px;
+                font-size: large;
+                // margin: 2rem;
+                cursor: pointer;
+            }
+        }
+    }
+    
+}
