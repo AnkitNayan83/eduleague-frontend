@@ -51,6 +51,10 @@
             font-weight: 600;
             margin-bottom: 30px;
             color: black;
+            font-size: 18px;
+            option {
+              font-size: 18px;
+            }
           }
         }
         .price {
@@ -90,6 +94,7 @@
                 border-radius: 5px;
                 background-color: black;
                 color: white;
+                cursor: pointer;
               }
             }
           }
@@ -106,7 +111,10 @@
           border-radius: 20px;
           background-color: rgba(250, 128, 64, 1);
           border: none;
-          box-shadow: 5px 5px 10px rgb(35, 35, 35);
+          cursor: pointer;
+          &:hover {
+            box-shadow: 5px 5px 10px rgb(35, 35, 35);
+          }
         }
       }
     }

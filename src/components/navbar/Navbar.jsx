@@ -38,8 +38,12 @@ export const Navbar = () => {
           <div className="nav-option" onClick={() => navigate("/")}>
             Home
           </div>
-          <div className="nav-option" onClick={()=> navigate("/createQuiz")}>Create Quiz</div>
-          <div className="nav-option" onClick={()=> navigate("/joinQuiz")}>Join Quiz</div>
+          <div className="nav-option" onClick={() => navigate("/createQuiz")}>
+            Create Quiz
+          </div>
+          <div className="nav-option" onClick={() => navigate("/joinQuiz")}>
+            Join Quiz
+          </div>
           <div className="nav-option" onClick={() => navigate("/about")}>
             About Us
           </div>
@@ -80,7 +84,7 @@ export const Navbar = () => {
           <Link to={"/editProfile"}>
             <div className="right">
               <span className="name-info">
-                {user?.fName + " " + user?.lName}
+                {user?.fName + " " + (user?.lName || "")}
               </span>
               <span className="mob-info">{user?.phoneNo}</span>
             </div>

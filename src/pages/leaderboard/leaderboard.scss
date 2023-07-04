@@ -1,0 +1,35 @@
+.leaderboard {
+  background-image: url("../../../public/images/bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+
+  .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    .top {
+      color: white;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0;
+      h1 {
+        border-right: 6px solid rgba(252, 198, 89, 1);
+        padding-right: 10px;
+      }
+    }
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      width: 60%;
+    }
+  }
+}

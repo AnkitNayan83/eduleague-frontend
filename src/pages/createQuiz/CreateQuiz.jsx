@@ -35,7 +35,7 @@ export const CreateQuiz = () => {
 
   return (
     <div className="createQuiz">
-      <Navbar2 />
+      <Navbar2 pageName={"createQuiz"} />
       <div className="wrapper">
         {!showInstruction ? (
           <div className="container">
@@ -68,6 +68,8 @@ export const CreateQuiz = () => {
                           {item.subject}
                         </option>
                       );
+                    } else {
+                      return null;
                     }
                   })}
                 </select>
@@ -86,6 +88,8 @@ export const CreateQuiz = () => {
                           {item.topic}
                         </option>
                       );
+                    } else {
+                      return null;
                     }
                   })}
                 </select>

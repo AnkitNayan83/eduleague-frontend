@@ -1,4 +1,101 @@
 .instruction {
   width: 1024px;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  .Itop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 40px;
+    .Ileft {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+
+      .choices {
+        padding: 10px 20px;
+        background-color: rgba(80, 57, 132, 1);
+        color: white;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+    }
+    .Iright {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 5px;
+      .final-coins {
+        padding: 20px 10px;
+        color: white;
+        background-color: rgba(80, 57, 132, 1);
+        border-radius: 5px;
+      }
+    }
+  }
+  .Imiddle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    .I-icons {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      .I-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+  .I-desc {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    ul {
+      width: 50%;
+      li {
+        margin-bottom: 15px;
+      }
+    }
+  }
+  .Ibottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    button {
+      padding: 10px 60px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      cursor: pointer;
+
+      &.back {
+        background-color: #fff;
+        border: 1px solid #fcc659;
+      }
+
+      &.next {
+        color: white;
+        background: linear-gradient(90deg, #fcc659 0%, #fa8040 93.23%);
+        border: none;
+
+        &:hover {
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.806);
+        }
+      }
+    }
+  }
 }

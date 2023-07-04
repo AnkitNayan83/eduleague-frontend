@@ -1,25 +1,38 @@
-import React, { useEffect, useState } from 'react';
-import { Navbar2 } from '../../components/navbar2/Navbar2';
-import { QuizCard } from '../../components/quizCard/QuizCard';
-import './joinQuiz.scss';
+import React, { useEffect, useState } from "react";
+import { Navbar2 } from "../../components/navbar2/Navbar2";
+import { QuizCard } from "../../components/quizCard/QuizCard";
+import "./joinQuiz.scss";
+import { axiosRequest } from "../../axiosInstance";
+import { useDispatch, useSelector } from "react-redux";
+import { hideLoading, showLoading } from "../../redux/slice/alertSlice";
+import { PropagateLoader } from "react-spinners";
 
 export const JoinQuiz = () => {
   const [quizes, setQuizes] = useState([]);
-  const [selectedQuizType, setSelectedQuizType] = useState('');
+  const [selectedQuizType, setSelectedQuizType] = useState("");
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.alerts.loading);
 
   useEffect(() => {
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDliYzYwYjg2MzJlY2FjNmMxZDIzYWUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjg4MTU0MzE0LCJleHAiOjE2ODg0MTM1MTR9.YMcqWXsq0Mi9zPVsPxWNNYz3YYEGibn2OxCvTcycdjg';
-
-    fetch('https://eduleague-6le7o.ondigitalocean.app/api/v1/quiz/get-quizes', {
-      headers: {
-        'Authorization': `Bearer ${token}`
+    const getQuiz = async () => {
+      const token = localStorage.getItem("token");
+      try {
+        dispatch(showLoading());
+        const { data } = await axiosRequest.get("/quiz/get-quizes", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        dispatch(hideLoading());
+        setSelectedQuizType("community");
+        setQuizes(data);
+      } catch (error) {
+        dispatch(hideLoading());
+        console.log(error);
       }
-    })
-      .then(response => response.json())
-      .then(data => setQuizes(data))
-      .catch(error => console.log(error));
-      setSelectedQuizType('community');
-      // console.log(quizes);
+    };
+    getQuiz();
+    // eslint-disable-next-line
   }, []);
 
   const handleQuizTypeClick = (quizType) => {
@@ -27,38 +40,53 @@ export const JoinQuiz = () => {
   };
 
   return (
-    <div className='background'>
-      <Navbar2/>
-      <div className='join-container'>
+    <div className="background">
+      <Navbar2 pageName={"Join Quiz"} />
+      <div className="join-container">
         <div className="left-part">
-          <h3 className='join-h3'>JOIN QUIZ</h3>
+          <h3 className="join-h3">JOIN QUIZ</h3>
           <p>Join quizzes created by others and earn cash rewards</p>
           <div className="btn-container">
-            <button className='btn' onClick={() => handleQuizTypeClick('community')}>Group quiz ＞</button>
-            <button className='btn' onClick={() => handleQuizTypeClick('single')}>One on One Quiz ＞</button>
+            <button
+              className="btn"
+              onClick={() => handleQuizTypeClick("community")}
+            >
+              Group quiz ＞
+            </button>
+            <button
+              className="btn"
+              onClick={() => handleQuizTypeClick("single")}
+            >
+              One on One Quiz ＞
+            </button>
           </div>
         </div>
         <div className="right-part">
-          {selectedQuizType === 'single' && (
+          {loading && (
+            <div className="spin">
+              <h2>Loading please wait</h2> <PropagateLoader color="#fff" />
+            </div>
+          )}
+          {selectedQuizType === "single" && (
             <>
-              <h4 className='join-h4'>Single Quiz</h4>
-              {quizes.singleQuizes && quizes.singleQuizes.map(quiz => (
-                <QuizCard key={quiz._id} quiz={quiz} />
-              ))}
+              <h4 className="join-h4">Single Quiz</h4>
+              {quizes.singleQuizes &&
+                quizes.singleQuizes.map((quiz) => (
+                  <QuizCard key={quiz._id} quiz={quiz} />
+                ))}
             </>
           )}
-          {selectedQuizType === 'community' && (
+          {selectedQuizType === "community" && (
             <>
-              <h4 className='join-h4'>Community Quiz</h4>
-              {quizes.communityQuizes && quizes.communityQuizes.map(quiz => (
-                <QuizCard key={quiz._id} quiz={quiz} />
-              ))}
+              <h4 className="join-h4">Community Quiz</h4>
+              {quizes.communityQuizes &&
+                quizes.communityQuizes.map((quiz) => (
+                  <QuizCard key={quiz._id} quiz={quiz} />
+                ))}
             </>
           )}
         </div>
       </div>
     </div>
   );
-}
-
-
+};
