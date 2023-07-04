@@ -14,7 +14,6 @@ export const Wallet = () => {
 
   useEffect(() => {
     const getWallet = async () => {
-      console.log("hit");
       try {
         dispatch(showLoading());
         const res = await axiosRequest.get("/user/get-wallet", {
@@ -22,7 +21,6 @@ export const Wallet = () => {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
-        console.log(res);
         dispatch(hideLoading());
         setWalletData(res.data);
       } catch (error) {

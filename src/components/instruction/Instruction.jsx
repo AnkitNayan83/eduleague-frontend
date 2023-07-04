@@ -1,5 +1,9 @@
 import React from "react";
 import "./instruction.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { axiosRequest } from "../../axiosInstance";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const Instruction = ({
   subject,
@@ -8,8 +12,28 @@ export const Instruction = ({
   entryCoins,
   hideInstruction,
 }) => {
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.alerts.loading);
+  const navigate = useNavigate();
+
   const handelCreateQuiz = async () => {
-    console.log(subject, course, topic, entryCoins);
+    try {
+      const token = localStorage.getItem("token");
+      const { data } = await axiosRequest.post(
+        "/quiz/create",
+        { course, subject, topic, entryCoins },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(data);
+      navigate(`/quiz/${data._id}`);
+      toast.success("quiz created Successfully");
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="instruction">

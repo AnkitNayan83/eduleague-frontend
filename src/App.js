@@ -89,7 +89,7 @@ function App() {
               }
             />
             <Route
-              path="/question/:quizId"
+              path="/quiz/:quizId"
               element={
                 <PrivateRoute>
                   <Questions />

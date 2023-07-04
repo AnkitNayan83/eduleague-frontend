@@ -99,8 +99,12 @@ export const Navbar = () => {
           </div>
         </div>
         <div className="nav-menu-options">
-          <div className="menu-option">Profile and KYC</div>
-          <div className="menu-option">Wallet</div>
+          <Link to="/editProfile">
+            <div className="menu-option">Profile and KYC</div>
+          </Link>
+          <Link to={"/wallet"}>
+            <div className="menu-option">Wallet</div>
+          </Link>
           <div className="menu-option">Analyse</div>
           <div className="menu-option">Leaderboard</div>
           <div className="menu-option">About Us</div>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./profile.scss";
 import { Helmet } from "react-helmet-async";
+import { Navbar2 } from "../../components/navbar2/Navbar2";
 export const Profile = () => {
   return (
     <div className="wallet-wrapper">
@@ -33,7 +34,9 @@ export const Profile = () => {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      <div className="wallet-container">
+      {/* <Navbar2 pageName={"profile"} /> */}
+
+      <div className="profile-container">
         <div className="left-part">
           <h4>Basic Information</h4>
         </div>
