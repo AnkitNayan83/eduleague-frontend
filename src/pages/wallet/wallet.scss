@@ -1,13 +1,16 @@
 .wallet-container {
-  background: transparent;
-  overflow-x: hidden;
-  background: linear-gradient(180deg, #5b4ee2 0%, #ae79b6 100%);
-
-  .wallet-wrapper {
-    width: 100%;
-    // height: 800px;
-    // background-image: url('./frame.png') ;
-    background: linear-gradient(180deg, #5b4ee2 0%, #ae79b6 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../../public/images/bg.png");
+  .wallet-wrapper2 {
+    margin-top: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;

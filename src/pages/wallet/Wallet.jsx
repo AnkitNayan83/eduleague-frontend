@@ -6,6 +6,7 @@ import { Navbar2 } from "../../components/navbar2/Navbar2";
 import { axiosRequest } from "../../axiosInstance";
 import { useDispatch, useSelector } from "react-redux";
 import { showLoading, hideLoading } from "../../redux/slice/alertSlice";
+import { PropagateLoader } from "react-spinners";
 export const Wallet = () => {
   const [wallet, setWallet] = useState(true);
   const [walletData, setWalletData] = useState({});
@@ -35,7 +36,7 @@ export const Wallet = () => {
   return (
     <div className="wallet-container">
       <Navbar2 pageName={"wallet"} />
-      <div className="wallet-wrapper">
+      <div className="wallet-wrapper2">
         <Helmet>
           <title>{"Eduleague | Wallet"}</title>
           <meta
@@ -65,7 +66,7 @@ export const Wallet = () => {
           <meta name="twitter:card" content="summary_large_image" />
         </Helmet>
         <div className="wallet-container2">
-          {/* add loading logic */}
+         
           <div className="left-part">
             <h5
               onClick={() => setWallet(true)}
@@ -84,7 +85,12 @@ export const Wallet = () => {
           {wallet ? (
             <>
               <div className="center-part">
-                <div className="content">
+                  <div className="content">
+                  {loading && (
+                  <div className="spin">
+                      <PropagateLoader color="#fff" />
+                  </div>
+                  )}
                   <h3>Total Earning</h3>
                   <h2>{walletData?.balance}</h2>
                 </div>
