@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-
+import React, { useState } from 'react';
+import "./questionCard.scss"
 export const QuestionCard = (props) => {
   const { question, handleNextQuestion, handleSkipQuestion } = props;
   const { question: questionText, options } = question;
 
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState('');
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
@@ -13,35 +13,28 @@ export const QuestionCard = (props) => {
   const handleNextClick = () => {
     // Pass the selected option to the onNextQuestion callback
     handleNextQuestion(selectedOption);
-    setSelectedOption("");
+    setSelectedOption('');
   };
 
   return (
-    <div>
-      <h4>Question:</h4>
-      <p>{questionText}</p>
-      <h4>Options:</h4>
-      <div>
+    <div className='question-card'>
+      <p className='question'>{questionText}</p>
+      <div className='options'>
         {options.map((option, index) => (
-          <div key={index}>
-            <input
-              type="radio"
-              id={index}
-              name="option"
-              value={option}
-              checked={selectedOption === option}
-              onChange={() => handleOptionSelect(option)}
-            />
-            <label htmlFor={index}>{option}</label>
+            <div
+            className={`option ${selectedOption === option ? 'selected' : ''}`}
+            key={index}
+            onClick={() => handleOptionSelect(option)}
+          >
+            {option}
           </div>
         ))}
       </div>
-      <div>
-        <button onClick={handleSkipQuestion}>Skip</button>
-        <button onClick={handleNextClick} disabled={!selectedOption}>
-          Next
-        </button>
+      <div className='btn-container1
+      '>
+        <button onClick={handleSkipQuestion} className="skip btn1">Skip</button>
+        <button onClick={handleNextClick} className="next btn1">Next</button>
       </div>
     </div>
   );
-};
+}

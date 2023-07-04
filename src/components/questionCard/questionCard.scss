@@ -1,0 +1,46 @@
+.question-card{
+    padding: 2rem 10rem;
+    .question{
+        font-size: 1.8rem;
+    }
+    .options{
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: .7rem;
+        .option {
+
+            cursor: pointer;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 18px;
+            background-color: white;
+            color: black;
+              
+            &.selected {
+                background-color: #2ffb7d;
+                border-color: #0366d6;
+                }
+           }
+    }
+    .btn-container1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        
+    }
+    .btn1{
+        padding: 1.7rem 7.7rem;
+        border-radius: 2rem;
+        font-size: 1.5rem;
+        color: rgb(255, 255, 255);
+        background: transparent;
+        border: 2px solid  #FCC659;
+        cursor: pointer;
+    }
+    .next{
+        background: linear-gradient(180deg, #A7FFFF 0%, #5B4EE2 0%, #AE79B6 100%);
+    }
+}
