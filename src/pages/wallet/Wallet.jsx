@@ -66,7 +66,6 @@ export const Wallet = () => {
           <meta name="twitter:card" content="summary_large_image" />
         </Helmet>
         <div className="wallet-container2">
-         
           <div className="left-part">
             <h5
               onClick={() => setWallet(true)}
@@ -85,11 +84,11 @@ export const Wallet = () => {
           {wallet ? (
             <>
               <div className="center-part">
-                  <div className="content">
+                <div className="content">
                   {loading && (
-                  <div className="spin">
-                      <PropagateLoader color="#fff" />
-                  </div>
+                    <div className="spin">
+                      <PropagateLoader color="#000" />
+                    </div>
                   )}
                   <h3>Total Earning</h3>
                   <h2>{walletData?.balance}</h2>

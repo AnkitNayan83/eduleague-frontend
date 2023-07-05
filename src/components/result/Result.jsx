@@ -1,10 +1,17 @@
 import React from "react";
 import "./result.scss";
-export const Result = ({ correctAnswer, skipAnswer }) => {
+import { useNavigate } from "react-router-dom";
+export const Result = ({ correctAnswer, skipAnswer, quizId, creatorId }) => {
   const totalQuestions = 10;
   const incorrectAnswer = totalQuestions - (correctAnswer + skipAnswer);
   const negativeMarking = 0.25; // Negative marking value for each incorrect answer
   const finalScore = correctAnswer - incorrectAnswer * negativeMarking;
+  const navigate = useNavigate();
+
+  const handelClick = () => {
+    navigate("/");
+    window.location.reload(false);
+  };
 
   return (
     <div className="result-one">
@@ -66,6 +73,11 @@ export const Result = ({ correctAnswer, skipAnswer }) => {
             <div className="btn-container1">
               <button className="skip btn1">Share</button>
               <button className="next btn1">View Result</button>
+            </div>
+            <div className="btn-container2">
+              <button className="home-btn" onClick={handelClick}>
+                Go to Home
+              </button>
             </div>
           </div>
         </div>

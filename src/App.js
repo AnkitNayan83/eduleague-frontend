@@ -16,16 +16,17 @@ import { CreateQuiz } from "./pages/createQuiz/CreateQuiz";
 import { JoinQuiz } from "./pages/joinQuiz/JoinQuiz";
 import { Questions } from "./pages/questions/Questions";
 import { Leaderboard } from "./pages/leaderboard/Leaderboard";
+import { JoinQuizCard } from "./pages/joinQuizCard/JoinQuizCard";
 
 function App() {
   return (
     <HelmetProvider>
-      <div className='App'>
+      <div className="App">
         <BrowserRouter>
           <ToastContainer />
           <Routes>
             <Route
-              path='/'
+              path="/"
               element={
                 <PublicRoute>
                   <Home />
@@ -33,7 +34,7 @@ function App() {
               }
             />
             <Route
-              path='/about'
+              path="/about"
               element={
                 <PublicRoute>
                   <AboutUs />
@@ -41,7 +42,7 @@ function App() {
               }
             />
             <Route
-              path='/login'
+              path="/login"
               element={
                 <NoUserRoute>
                   <Login />
@@ -49,7 +50,7 @@ function App() {
               }
             />
             <Route
-              path='/register'
+              path="/register"
               element={
                 <NoUserRoute>
                   <Register />
@@ -57,7 +58,7 @@ function App() {
               }
             />
             <Route
-              path='/editProfile'
+              path="/editProfile"
               element={
                 <PrivateRoute>
                   <Profile />
@@ -65,7 +66,7 @@ function App() {
               }
             />
             <Route
-              path='/wallet'
+              path="/wallet"
               element={
                 <PrivateRoute>
                   <Wallet />
@@ -73,7 +74,7 @@ function App() {
               }
             />
             <Route
-              path='/createQuiz'
+              path="/createQuiz"
               element={
                 <PrivateRoute>
                   <CreateQuiz />
@@ -81,7 +82,7 @@ function App() {
               }
             />
             <Route
-              path='/joinQuiz'
+              path="/joinQuiz"
               element={
                 <PrivateRoute>
                   <JoinQuiz />
@@ -89,7 +90,7 @@ function App() {
               }
             />
             <Route
-              path='/quiz/:quizId'
+              path="/quiz/:quizId"
               element={
                 <PrivateRoute>
                   <Questions />
@@ -97,10 +98,18 @@ function App() {
               }
             />
             <Route
-              path='/leaderboard/:quizId'
+              path="/leaderboard/:quizId"
               element={
                 <PrivateRoute>
                   <Leaderboard />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/joinQuiz/:quizId"
+              element={
+                <PrivateRoute>
+                  <JoinQuizCard />
                 </PrivateRoute>
               }
             />

@@ -4,6 +4,21 @@
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+  position: relative;
+
+  &.tp {
+    background: transparent;
+  }
+
+  .spinner-I {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+
   .Itop {
     display: flex;
     align-items: center;

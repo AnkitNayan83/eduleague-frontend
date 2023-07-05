@@ -45,7 +45,7 @@ export const Navbar2 = ({ pageName }) => {
         </div>
         <div className="nav-user-info">
           <div className="left">
-            <img src="./images/prof.png" alt="" />
+            <img src={"./images/prof.png"} alt="" />
           </div>
           <div className="right">
             <span className="name-info">
