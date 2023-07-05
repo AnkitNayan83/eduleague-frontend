@@ -6,12 +6,14 @@ import { Close } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../../redux/slice/authSlice";
 import { toast } from "react-toastify";
+import { BeatLoader } from "react-spinners";
 
 export const Navbar = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const loading = useSelector((state) => state.alerts.loading);
 
   const handelLogOut = () => {
     localStorage.clear();
@@ -48,28 +50,37 @@ export const Navbar = () => {
             About Us
           </div>
           <div className="nav-option">FAQ</div>
-          {user && (
-            <Link to={"/wallet"}>
-              <div className="nav-wallet">
-                <span>{user?.balance}</span>
-                <img src="./images/wallet.png" alt="" />
-              </div>
-            </Link>
-          )}
-          {user && (
-            <div className="nav-menu">
-              <MenuIcon className="i-menu" onClick={() => setShowMenu(true)} />
-            </div>
-          )}
-          {!user && (
-            <Link to="/login">
-              <div className="nav-option log-in">Log in</div>{" "}
-            </Link>
-          )}
-          {!user && (
-            <Link to="/register">
-              <button>Sign up</button>{" "}
-            </Link>
+          {loading ? (
+            <BeatLoader color="#000" />
+          ) : (
+            <>
+              {user && (
+                <Link to={"/wallet"}>
+                  <div className="nav-wallet">
+                    <span>{user?.balance}</span>
+                    <img src="./images/wallet.png" alt="" />
+                  </div>
+                </Link>
+              )}
+              {user && (
+                <div className="nav-menu">
+                  <MenuIcon
+                    className="i-menu"
+                    onClick={() => setShowMenu(true)}
+                  />
+                </div>
+              )}
+              {!user && (
+                <Link to="/login">
+                  <div className="nav-option log-in">Log in</div>{" "}
+                </Link>
+              )}
+              {!user && (
+                <Link to="/register">
+                  <button>Sign up</button>{" "}
+                </Link>
+              )}
+            </>
           )}
         </div>
       </div>

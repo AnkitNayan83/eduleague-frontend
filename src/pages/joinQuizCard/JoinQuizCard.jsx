@@ -33,6 +33,7 @@ export const JoinQuizCard = () => {
       }
     };
     getQuiz();
+    // eslint-disable-next-line
   }, [quizId]);
 
   const handelParticipant = async () => {
@@ -47,7 +48,6 @@ export const JoinQuizCard = () => {
           },
         }
       );
-      dispatch(hideLoading());
       if (res.data && res.data.success) {
         navigate(`/quiz/${quizId}`, {
           state: {
@@ -58,6 +58,7 @@ export const JoinQuizCard = () => {
       } else {
         toast.error(res.data.message);
       }
+      dispatch(hideLoading());
     } catch (error) {
       dispatch(hideLoading());
       console.log(error);
@@ -97,7 +98,9 @@ export const JoinQuizCard = () => {
                 <div className="JQC-btn">
                   <button className="max-price">
                     Win upto{" "}
-                    <strong>{quiz?.entryCoins + quiz?.entryCoins * 0.6}</strong>
+                    <strong>
+                      {(quiz?.entryCoins || 0) + (quiz?.entryCoins || 0) * 0.6}
+                    </strong>
                   </button>
                   <button className="join" onClick={handelParticipant}>
                     Join Now Rs {quiz?.entryCoins}

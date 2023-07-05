@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { QuestionCard } from "../../components/questionCard/QuestionCard";
 import { Result } from "../../components/result/Result";
 import "./question.scss";
 import { useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { axiosRequest } from "../../axiosInstance";
-import { toast } from "react-toastify";
 import { hideLoading, showLoading } from "../../redux/slice/alertSlice";
 
 export const Questions = () => {
   const location = useLocation();
+  // eslint-disable-next-line
   const [questions, setQuestions] = useState(location.state.questions);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   let [correctAnswer, setCorrectAnswer] = useState(0);
@@ -32,6 +32,7 @@ export const Questions = () => {
         const incorrectAnswer = 10 - correctAnswer - skipAnswer;
         const totalMarks = correctAnswer - 0.25 * incorrectAnswer;
         const timeTaken = 60;
+        // eslint-disable-next-line
         const { data } = await axiosRequest.put(
           `/participant/update/${id}`,
           {
@@ -49,8 +50,6 @@ export const Questions = () => {
           }
         );
         dispatch(hideLoading());
-        toast.success("quiz completed!!");
-        console.log(data);
       } catch (error) {
         dispatch(hideLoading());
         console.log(error);
@@ -63,13 +62,13 @@ export const Questions = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     setSkipAnswer((prevSkipAnswer) => prevSkipAnswer + 1);
     if (currentQuestionIndex >= 9) {
-      console.log(location.state.participant);
       try {
         dispatch(showLoading());
         const id = location.state.participant;
         const incorrectAnswer = 10 - correctAnswer - skipAnswer;
         const totalMarks = correctAnswer - 0.25 * incorrectAnswer;
         const timeTaken = 60;
+        // eslint-disable-next-line
         const { data } = await axiosRequest.put(
           `/participant/update/${id}`,
           {
@@ -87,8 +86,6 @@ export const Questions = () => {
           }
         );
         dispatch(hideLoading());
-        toast.success("quiz completed!!");
-        console.log(data);
       } catch (error) {
         dispatch(hideLoading());
         console.log(error);

@@ -60,7 +60,6 @@
     .header-bottom {
       width: 100%;
       display: flex;
-      align-items: center;
       gap: 40px;
 
       .header-bottom-card {
@@ -70,25 +69,31 @@
         box-shadow: -11px 4px 33px 0px rgba(0, 0, 0, 0.315);
         padding: 10px;
         width: 33%;
-        display: flex;
-        flex-direction: column;
+
         margin-bottom: 40px;
         gap: 13px;
-        img {
-          width: 100px;
-          height: 100px;
-        }
-        p {
-          word-spacing: 2px;
-        }
-        .card-arrow {
+        .header-bottom-card-cnt {
           display: flex;
-          justify-content: flex-end;
-          .a1 {
-            background-color: #fcc659;
-            border-radius: 50%;
-            padding: 10px 12px;
-            color: white;
+          flex-direction: column;
+          img {
+            width: 100px;
+            height: 100px;
+          }
+          p {
+            word-spacing: 2px;
+            &.sm {
+              margin-bottom: 17px;
+            }
+          }
+          .card-arrow {
+            display: flex;
+            justify-content: flex-end;
+            .a1 {
+              background-color: #fcc659;
+              border-radius: 50%;
+              padding: 10px 12px;
+              color: white;
+            }
           }
         }
       }
@@ -98,6 +103,7 @@
         flex-direction: column;
         gap: 15px;
         border-right: 3px solid rgba(252, 198, 89, 1);
+        height: max-content;
 
         h2 {
           span {

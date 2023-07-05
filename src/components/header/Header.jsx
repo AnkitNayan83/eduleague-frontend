@@ -1,6 +1,7 @@
 import React from "react";
 import "./header.scss";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -20,26 +21,38 @@ export const Header = () => {
         </div>
         <div className="header-bottom">
           <div className="header-bottom-card">
-            <img src="./images/question1.png" alt="" className="bottom-icon1" />
-            <h3>Quiz Creation</h3>
-            <p>
-              Allow users to create quizzes with multiple choice questions and
-              choose topics they want
-            </p>
-            <div className="card-arrow">
-              <ArrowForwardIcon className="a1" />
-            </div>
+            <Link to="/createQuiz">
+              <div className="header-bottom-card-cnt">
+                <img
+                  src="./images/question1.png"
+                  alt=""
+                  className="bottom-icon1"
+                />
+                <h3>Quiz Creation</h3>
+                <p>
+                  Allow users to create quizzes with multiple choice questions
+                  and choose topics they want
+                </p>
+                <div className="card-arrow">
+                  <ArrowForwardIcon className="a1" />
+                </div>
+              </div>
+            </Link>
           </div>
           <div className="header-bottom-card">
-            <img src="./images/question1.png" alt="" className="bottom-icon1" />
-            <h3>Quiz Creation</h3>
-            <p>
-              Allow users to create quizzes with multiple choice questions and
-              choose topics they want
-            </p>
-            <div className="card-arrow">
-              <ArrowForwardIcon className="a1" />
-            </div>
+            <Link to="/joinQuiz">
+              <div className="header-bottom-card-cnt">
+                <img src="./images/jqn.png" alt="" className="bottom-icon1" />
+                <h3>Join Quiz</h3>
+                <p className="sm">
+                  Join quiz created by different users on different topics and
+                  earn cash prizes
+                </p>
+                <div className="card-arrow">
+                  <ArrowForwardIcon className="a1" />
+                </div>
+              </div>
+            </Link>
           </div>
           <div className="header-bottom-desc">
             <h2>

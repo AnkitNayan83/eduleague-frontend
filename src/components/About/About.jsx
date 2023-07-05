@@ -1,5 +1,6 @@
 import React from "react";
 import "./about.scss";
+import { Link } from "react-router-dom";
 
 export const About = () => {
   return (
@@ -19,7 +20,9 @@ export const About = () => {
             quizzes on various subjects, ranging from general knowledge to
             specific academic topics.
           </p>
-          <button>Join Now</button>
+          <Link to={"/joinQuiz"}>
+            <button>Join Now</button>
+          </Link>
         </div>
         <div className="right">
           <div className="img-wrapper">
