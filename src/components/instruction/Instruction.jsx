@@ -29,7 +29,7 @@ export const Instruction = ({
         }
       );
       console.log(data);
-      navigate(`/quiz/${data._id}`);
+      navigate(`/quiz/${data.quiz._id}`);
       toast.success("quiz created Successfully");
     } catch (error) {
       console.log(error);
