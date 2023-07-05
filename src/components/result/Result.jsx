@@ -1,17 +1,37 @@
 import React from "react";
 import "./result.scss";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 export const Result = ({ correctAnswer, skipAnswer, quizId, creatorId }) => {
   const totalQuestions = 10;
   const incorrectAnswer = totalQuestions - (correctAnswer + skipAnswer);
   const negativeMarking = 0.25; // Negative marking value for each incorrect answer
   const finalScore = correctAnswer - incorrectAnswer * negativeMarking;
+  const [showSharePopup, setShowSharePopup] = useState(false);
+
+  const handleShareClick = () => {
+    setShowSharePopup(true);
+  };
+
+  const closeSharePopup = () => {
+    setShowSharePopup(false);
+  };
   const navigate = useNavigate();
 
   const handelClick = () => {
     navigate("/");
     window.location.reload(false);
   };
+
+  const handleResult = () =>{
+    navigate(`/result/${quizId}`,{
+      state: {
+        finalScore: finalScore,
+        quizId:quizId
+      },
+    });
+    // window.location.reload(false);
+  }
 
   return (
     <div className="result-one">
@@ -71,8 +91,8 @@ export const Result = ({ correctAnswer, skipAnswer, quizId, creatorId }) => {
             </div>
 
             <div className="btn-container1">
-              <button className="skip btn1">Share</button>
-              <button className="next btn1">View Result</button>
+              <button className="skip btn1"  onClick={handleShareClick}>Share</button>
+              <button className="next btn1" onClick={handleResult}>View Result</button>
             </div>
             <div className="btn-container2">
               <button className="home-btn" onClick={handelClick}>
@@ -82,6 +102,20 @@ export const Result = ({ correctAnswer, skipAnswer, quizId, creatorId }) => {
           </div>
         </div>
       </div>
+      {showSharePopup && (
+        <div className="share-popup">
+          <div className="share-popup-content">
+            <h3>Share with friends</h3>
+            <input
+              type="text"
+              value={`http://localhost:3000/joinQuiz/${quizId}`}
+              readOnly
+              onClick={(e) => e.target.select()}
+            />
+            <button onClick={closeSharePopup}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
