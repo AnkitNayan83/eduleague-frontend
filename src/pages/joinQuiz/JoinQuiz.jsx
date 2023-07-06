@@ -38,7 +38,6 @@ export const JoinQuiz = () => {
   const handleQuizTypeClick = (quizType) => {
     setSelectedQuizType(quizType);
   };
-
   return (
     <div className="background">
       <Navbar2 pageName={"Join Quiz"} />

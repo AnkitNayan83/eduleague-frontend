@@ -29,7 +29,7 @@ export const OneV = () => {
     const fetchQuiz = async () => {
       try {
         dispatch(showLoading());
-        const response = await axiosRequest.put(`/quiz/${quizId}`, {
+        const response = await axiosRequest.get(`/quiz/${quizId}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
