@@ -19,12 +19,15 @@ export const Questions = () => {
   const user = useSelector((state) => state.auth.user);
   const currentQuestion = questions[currentQuestionIndex];
 
+  // const saveParticipant = async()=>{}
+
   const handleNextQuestion = async (selectedOption) => {
     const currentQuestion = questions[currentQuestionIndex];
-
     if (selectedOption === currentQuestion.correctAnswer) {
       setCorrectAnswer((prevCorrectAnswer) => prevCorrectAnswer + 1);
     }
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+
     if (currentQuestionIndex >= 9) {
       try {
         dispatch(showLoading());
@@ -32,6 +35,7 @@ export const Questions = () => {
         const incorrectAnswer = 10 - correctAnswer - skipAnswer;
         const totalMarks = correctAnswer - 0.25 * incorrectAnswer;
         const timeTaken = 60;
+        console.log(incorrectAnswer, correctAnswer, skipAnswer);
         // eslint-disable-next-line
         const { data } = await axiosRequest.put(
           `/participant/update/${id}`,
@@ -55,7 +59,6 @@ export const Questions = () => {
         console.log(error);
       }
     }
-    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   };
 
   const handleSkipQuestion = async () => {
@@ -68,6 +71,7 @@ export const Questions = () => {
         const incorrectAnswer = 10 - correctAnswer - skipAnswer;
         const totalMarks = correctAnswer - 0.25 * incorrectAnswer;
         const timeTaken = 60;
+        console.log(incorrectAnswer, correctAnswer, skipAnswer);
         // eslint-disable-next-line
         const { data } = await axiosRequest.put(
           `/participant/update/${id}`,
