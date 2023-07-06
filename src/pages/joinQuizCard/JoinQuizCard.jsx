@@ -26,7 +26,8 @@ export const JoinQuizCard = () => {
           },
         });
         dispatch(hideLoading());
-        setQuiz(data);
+        console.log(data.quiz);
+        setQuiz(data.quiz);
       } catch (error) {
         console.log(error);
         dispatch(hideLoading());
