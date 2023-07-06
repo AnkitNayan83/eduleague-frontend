@@ -1,3 +1,5 @@
+@import "../../App.scss"; 
+
 .wallet-container {
   position: fixed;
   top: 0;
@@ -14,6 +16,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @include tablet {
+      margin-top: 10rem;
+    }
+    @include mobile{
+      margin-top: 4rem;
+    }
+
     .wallet-container2 {
       background-color: aliceblue;
       border-radius: 10px;
@@ -23,11 +32,24 @@
 
       display: flex;
       gap: 1rem;
+      @include tablet {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        width: 700px;
+      }
+
+      
       .left-part {
         flex-basis: 1;
         padding: 2rem;
         width: 20%;
         margin-top: 2rem;
+        @include tablet {
+          width: max-content;
+          padding: 0;
+        }
         h5 {
           font-size: 1.4rem;
           height: 1.8rem;
@@ -59,6 +81,13 @@
         align-items: center;
         justify-content: center;
         height: 40%;
+        @include tablet {
+          margin-top: 1.5rem;
+        }
+
+        @include mobile{
+          width: max-content;
+        }
 
         .content {
           display: flex;
@@ -80,6 +109,12 @@
         flex-direction: column;
         padding: 1rem;
         margin-top: 4rem;
+        @include tablet {
+          margin-top: 2rem;
+        }
+        @include mobile{
+          width: max-content;
+        }
         h4 {
           margin-bottom: 0.5rem;
         }
@@ -114,6 +149,15 @@
         padding: 2rem;
         overflow:auto ;
         overflow-x: hidden;
+        @include tablet {
+          width: max-content;
+        }
+        @include mobile{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+    
+        }
         .transaction-conatiner {
           margin-top: 2rem;
           // background-color: #4e98e2;
@@ -124,6 +168,10 @@
           width: 100%;
           border-radius: 4px;
           padding: 1rem .1rem 1rem 1rem;
+          @include mobile{
+            flex-direction: column;
+            width: max-content;
+          }
           .left {
             padding-left: 1rem;
             h4 {
@@ -142,3 +190,4 @@
     }
   }
 }
+
