@@ -19,7 +19,8 @@ export const Result = ({
   const [showSharePopup, setShowSharePopup] = useState(false);
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.alerts.loading);
-
+  const user = useSelector((state) => state.auth.user);
+  const [isCreator, setIsCreator] = useState(false);
   const handleShareClick = () => {
     setShowSharePopup(true);
   };
@@ -42,7 +43,6 @@ export const Result = ({
       },
     });
   };
-
   useEffect(() => {
     const saveParticipantQ = async () => {
       try {
@@ -68,6 +68,8 @@ export const Result = ({
             },
           }
         );
+        console.log(data.quiz.creator)
+        setIsCreator(data.quiz.creator  === user?._id);
         dispatch(hideLoading());
       } catch (error) {
         dispatch(hideLoading());
@@ -84,7 +86,7 @@ export const Result = ({
         <h3 className="green1">Your Quiz is live!</h3>
         <div className="part">
           <div className="purple-box">
-            <h3>Your Score</h3>
+            <h3>Score</h3>
             <h2>
               {finalScore}/{totalQuestions}
             </h2>
@@ -136,23 +138,26 @@ export const Result = ({
             </div>
 
             <div className="btn-container1">
-              <button className="skip btn1" onClick={handleShareClick}>
-                Share
-              </button>
-              {loading ? (
-                <div>Your result is begin processed</div>
-              ) : (
-                <button className="next btn1" onClick={handleResult}>
-                  View Result
+              {isCreator ? (
+                <button className="skip btn1" onClick={handleShareClick}>
+                  Share
                 </button>
+              ) : (
+                loading ? (
+                  <div>Your result is being processed</div>
+                ) : (
+                  <button className="next btn1" onClick={handleResult}>
+                    View Result
+                  </button>
+                )
               )}
             </div>
-            <div className="btn-container2">
+          </div>
+          <div className="btn-container2">
               <button className="home-btn" onClick={handelClick}>
                 Go to Home
               </button>
             </div>
-          </div>
         </div>
       </div>
       {showSharePopup && (
