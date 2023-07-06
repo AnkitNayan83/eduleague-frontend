@@ -1,4 +1,5 @@
-.oneV-container{
+.wrapper {
+  .oneV-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -15,80 +16,82 @@
     align-items: center;
     justify-content: center;
 
-    .white-box{
-        background-color: white;
-        width: 70%;
-        height: 50%;
-        border-radius: 3rem ;
-        color: black;
-        padding: 1rem 3rem 3rem 3rem;
-
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        gap: 6rem;
-        .left-wrap{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            .result-wrap{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                // justify-content: center;
-                
-                
-            }
-
-           
-        }
-
-        .right-wrap{
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            .score{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                .grey-circle{
-                    width: 100px;
-                    height: 100px;
-                    background-color: rgb(210, 209, 209);
-                    border-radius: 50%;
-                }
-            }
-
-            .div{
-                font-size: 2rem;
-                font-weight: 600;
-            }
-        }
+    .spinner-I {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
     }
-  
-}
-.righti{
+
+    .white-box {
+      background-color: white;
+      width: 70%;
+      height: 50%;
+      border-radius: 3rem;
+      color: black;
+      padding: 1rem 3rem 3rem 3rem;
+
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 6rem;
+      .left-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .result-wrap {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          // justify-content: center;
+        }
+      }
+
+      .right-wrap {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        .score {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          .grey-circle {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(210, 209, 209);
+            border-radius: 50%;
+          }
+        }
+
+        .div {
+          font-size: 2rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .righti {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-}
-.btn{
+  }
+  .btn {
     display: flex;
     align-items: center;
     justify-content: center;
     // margin: 1rem;
-    .btn-result{
-        padding: 1rem 3rem;
-        border-radius: 2rem;
-        background-color: rgb(213, 112, 238);
-        cursor: pointer;
-        font-size: 1.2rem;
+    .btn-result {
+      padding: 1rem 3rem;
+      border-radius: 2rem;
+      background-color: rgb(213, 112, 238);
+      cursor: pointer;
+      font-size: 1.2rem;
     }
 
-    .btn-result:hover{
-        background-color: rgb(186, 54, 219);
-
+    .btn-result:hover {
+      background-color: rgb(186, 54, 219);
     }
+  }
 }

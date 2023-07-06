@@ -4,6 +4,7 @@ import "./createQuiz.scss";
 import { subjectsData } from "./option-data";
 import { Add, Remove } from "@mui/icons-material";
 import { Instruction } from "../../components/instruction/Instruction";
+import { toast } from "react-toastify";
 
 export const CreateQuiz = () => {
   const [course, setCourse] = useState("");
@@ -30,6 +31,15 @@ export const CreateQuiz = () => {
     if (type === "add") setEntryCoins(entryCoins + 5);
     else {
       if (entryCoins !== 10) setEntryCoins(entryCoins - 5);
+    }
+  };
+
+  const handelInstruction = () => {
+    if (course === "" || subject === "" || topic === "") {
+      toast.error("all fields are required");
+      return;
+    } else {
+      setShowInstruction(true);
     }
   };
 
@@ -116,10 +126,7 @@ export const CreateQuiz = () => {
                   </span>
                 </div>
               </div>
-              <button
-                className="create-btn"
-                onClick={() => setShowInstruction(true)}
-              >
+              <button className="create-btn" onClick={handelInstruction}>
                 Next
               </button>
             </div>
