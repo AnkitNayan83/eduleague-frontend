@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./result.scss";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-export const Result = ({ correctAnswer, skipAnswer, quizId, creatorId }) => {
+import { useDispatch, useSelector } from "react-redux";
+import { hideLoading, showLoading } from "../../redux/slice/alertSlice";
+import { axiosRequest } from "../../axiosInstance";
+export const Result = ({
+  correctAnswer,
+  skipAnswer,
+  quizId,
+  creatorId,
+  partId,
+}) => {
   const totalQuestions = 10;
   const incorrectAnswer = totalQuestions - (correctAnswer + skipAnswer);
   const negativeMarking = 0.25; // Negative marking value for each incorrect answer
   const finalScore = correctAnswer - incorrectAnswer * negativeMarking;
   const [showSharePopup, setShowSharePopup] = useState(false);
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.alerts.loading);
 
   const handleShareClick = () => {
     setShowSharePopup(true);
@@ -23,15 +34,49 @@ export const Result = ({ correctAnswer, skipAnswer, quizId, creatorId }) => {
     window.location.reload(false);
   };
 
-  const handleResult = () =>{
-    navigate(`/result/${quizId}`,{
+  const handleResult = () => {
+    navigate(`/result/${quizId}`, {
       state: {
         finalScore: finalScore,
-        quizId:quizId
+        quizId: quizId,
       },
     });
-    // window.location.reload(false);
-  }
+  };
+
+  useEffect(() => {
+    const saveParticipantQ = async () => {
+      try {
+        dispatch(showLoading());
+        const id = partId;
+        const incorrectAnswer = 10 - correctAnswer - skipAnswer;
+        const totalMarks = correctAnswer - 0.25 * incorrectAnswer;
+        const timeTaken = 60;
+        // eslint-disable-next-line
+        const { data } = await axiosRequest.put(
+          `/participant/update/${id}`,
+          {
+            correctAnswers: correctAnswer,
+            incorrectAnswers: incorrectAnswer,
+            skippedQuestions: skipAnswer,
+            totalAttempted: 10,
+            totalMarks,
+            timeTaken,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+        dispatch(hideLoading());
+      } catch (error) {
+        dispatch(hideLoading());
+        console.log(error);
+      }
+    };
+    saveParticipantQ();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div className="result-one">
@@ -91,8 +136,16 @@ export const Result = ({ correctAnswer, skipAnswer, quizId, creatorId }) => {
             </div>
 
             <div className="btn-container1">
-              <button className="skip btn1"  onClick={handleShareClick}>Share</button>
-              <button className="next btn1" onClick={handleResult}>View Result</button>
+              <button className="skip btn1" onClick={handleShareClick}>
+                Share
+              </button>
+              {loading ? (
+                <div>Your result is begin processed</div>
+              ) : (
+                <button className="next btn1" onClick={handleResult}>
+                  View Result
+                </button>
+              )}
             </div>
             <div className="btn-container2">
               <button className="home-btn" onClick={handelClick}>

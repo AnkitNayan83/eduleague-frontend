@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .register {
   background-image: url("../../../public/images/bg.png");
   background-position: center;
@@ -42,16 +44,26 @@
       background: white;
       border-radius: 10px;
       display: flex;
+      @include mobile {
+        flex-direction: column;
+      }
       .left {
         flex: 1;
         display: flex;
         flex-direction: column;
         padding: 60px 50px;
         gap: 40px;
+        @include mobile {
+          padding: 10px 50px;
+          gap: 0px;
+        }
         .l-top {
           display: flex;
           flex-direction: column;
           gap: 10px;
+          @include mobile {
+            font-size: 12px;
+          }
         }
         .l-bottom {
           display: flex;
@@ -60,6 +72,9 @@
             height: 350px;
             width: 350px;
             margin-right: 60px;
+            @include mobile {
+              display: none;
+            }
           }
         }
       }
@@ -72,6 +87,9 @@
         padding: 20px;
         .r-top {
           margin-top: 20px;
+          @include mobile {
+            margin-top: 5px;
+          }
           width: 80%;
           display: flex;
           justify-content: flex-end;
@@ -85,6 +103,9 @@
           flex-direction: column;
           gap: 20px;
           margin-top: 30px;
+          @include mobile {
+            margin-top: 10px;
+          }
 
           .form-item {
             display: flex;

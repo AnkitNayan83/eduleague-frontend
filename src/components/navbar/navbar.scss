@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .navbar {
   z-index: 99;
   height: 60px;
@@ -13,6 +15,7 @@
         display: flex;
         align-items: center;
         cursor: pointer;
+
         .edu-logo {
           height: 15%;
           width: 15%;
@@ -31,6 +34,14 @@
         border-bottom: 4px solid white;
         &:hover {
           border-bottom: 4px solid rgba(252, 198, 89, 1);
+        }
+        @include mobile {
+          display: none;
+        }
+
+        @include tablet {
+          font-size: 14px;
+          font-weight: 600;
         }
 
         &.log-in {
@@ -52,6 +63,12 @@
           height: 30px;
         }
         cursor: pointer;
+        @include mobile {
+          padding: 5px 20px;
+        }
+        @include tablet {
+          padding: 5px 20px;
+        }
       }
       button {
         background-color: rgba(49, 49, 49, 1);

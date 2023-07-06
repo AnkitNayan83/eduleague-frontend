@@ -3,9 +3,7 @@ import { QuestionCard } from "../../components/questionCard/QuestionCard";
 import { Result } from "../../components/result/Result";
 import "./question.scss";
 import { useLocation, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { axiosRequest } from "../../axiosInstance";
-import { hideLoading, showLoading } from "../../redux/slice/alertSlice";
+import { useSelector } from "react-redux";
 
 export const Questions = () => {
   const location = useLocation();
@@ -15,11 +13,8 @@ export const Questions = () => {
   let [correctAnswer, setCorrectAnswer] = useState(0);
   let [skipAnswer, setSkipAnswer] = useState(0);
   const params = useParams();
-  const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
   const currentQuestion = questions[currentQuestionIndex];
-
-  // const saveParticipant = async()=>{}
 
   const handleNextQuestion = async (selectedOption) => {
     const currentQuestion = questions[currentQuestionIndex];
@@ -27,74 +22,11 @@ export const Questions = () => {
       setCorrectAnswer((prevCorrectAnswer) => prevCorrectAnswer + 1);
     }
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-
-    if (currentQuestionIndex >= 9) {
-      try {
-        dispatch(showLoading());
-        const id = location.state.participant;
-        const incorrectAnswer = 10 - correctAnswer - skipAnswer;
-        const totalMarks = correctAnswer - 0.25 * incorrectAnswer;
-        const timeTaken = 60;
-        console.log(incorrectAnswer, correctAnswer, skipAnswer);
-        // eslint-disable-next-line
-        const { data } = await axiosRequest.put(
-          `/participant/update/${id}`,
-          {
-            correctAnswers: correctAnswer,
-            incorrectAnswers: incorrectAnswer,
-            skippedQuestions: skipAnswer,
-            totalAttempted: 10,
-            totalMarks,
-            timeTaken,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        );
-        dispatch(hideLoading());
-      } catch (error) {
-        dispatch(hideLoading());
-        console.log(error);
-      }
-    }
   };
 
   const handleSkipQuestion = async () => {
-    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     setSkipAnswer((prevSkipAnswer) => prevSkipAnswer + 1);
-    if (currentQuestionIndex >= 9) {
-      try {
-        dispatch(showLoading());
-        const id = location.state.participant;
-        const incorrectAnswer = 10 - correctAnswer - skipAnswer;
-        const totalMarks = correctAnswer - 0.25 * incorrectAnswer;
-        const timeTaken = 60;
-        console.log(incorrectAnswer, correctAnswer, skipAnswer);
-        // eslint-disable-next-line
-        const { data } = await axiosRequest.put(
-          `/participant/update/${id}`,
-          {
-            correctAnswers: correctAnswer,
-            incorrectAnswers: incorrectAnswer,
-            skippedQuestions: skipAnswer,
-            totalAttempted: 10,
-            totalMarks,
-            timeTaken,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        );
-        dispatch(hideLoading());
-      } catch (error) {
-        dispatch(hideLoading());
-        console.log(error);
-      }
-    }
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   };
 
   return (
@@ -120,6 +52,7 @@ export const Questions = () => {
           skipAnswer={skipAnswer}
           quizId={params.quizId}
           creatorId={user._id}
+          partId={location.state.participant}
         />
       )}
     </div>

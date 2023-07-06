@@ -1,4 +1,15 @@
 * {
   font-family: "Poppins", sans-serif;
-  font-family: "Roboto", sans-serif;
+}
+
+@mixin tablet {
+  @media (max-width: 850px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
 }

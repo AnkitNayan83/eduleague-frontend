@@ -1,6 +1,9 @@
+@import "../../App.scss";
+
 .newsletter {
   display: flex;
   justify-content: center;
+
   height: 40vh;
   margin-bottom: 80px;
   .container {
@@ -10,12 +13,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @include mobile {
+      flex-direction: column;
+      width: 90vw;
+    }
 
     .middle {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 7px;
+
+      h1 {
+        @include mobile {
+          font-size: 20px;
+        }
+      }
 
       form {
         margin-top: 10px;

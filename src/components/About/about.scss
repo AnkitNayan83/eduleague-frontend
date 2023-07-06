@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .about-edu {
   display: flex;
   justify-content: center;
@@ -6,6 +8,9 @@
     width: 1024px;
     display: flex;
     align-items: center;
+    @include mobile {
+      flex-direction: column;
+    }
     height: 100%;
     gap: 5px;
     margin: 50px;
@@ -21,6 +26,12 @@
       h2 {
         font-weight: 700;
         font-size: 50px;
+        @include mobile {
+          font-size: 30px;
+        }
+        @include tablet {
+          font-size: 30px;
+        }
       }
       p {
         font-weight: 500;
@@ -33,6 +44,13 @@
         padding: 8px 15px;
         cursor: pointer;
         width: 25%;
+        @include mobile {
+          margin-bottom: 20px;
+          width: 40%;
+        }
+        @include tablet {
+          width: 40%;
+        }
       }
     }
     .right {

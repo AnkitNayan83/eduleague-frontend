@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .instruction {
   width: 1024px;
   background-color: white;
@@ -25,6 +27,10 @@
     justify-content: space-between;
     padding: 10px;
     margin-bottom: 40px;
+    @include mobile {
+      flex-direction: column;
+      gap: 10px;
+    }
     .Ileft {
       display: flex;
       align-items: center;
@@ -77,9 +83,16 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-
+    h1 {
+      @include mobile {
+        font-size: 22px;
+      }
+    }
     ul {
       width: 50%;
+      @include mobile {
+        width: 90%;
+      }
       li {
         margin-bottom: 15px;
       }

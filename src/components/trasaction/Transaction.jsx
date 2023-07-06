@@ -1,10 +1,9 @@
 import React from "react";
 
 export const Transaction = ({ log }) => {
-  console.log(log);
   const data = log.split("@");
   const str = data[0];
-  const timestamp = data[1]; 
+  const timestamp = data[1];
   const time = new Date(Number(timestamp));
   const formattedDate = time.toLocaleDateString();
   return (

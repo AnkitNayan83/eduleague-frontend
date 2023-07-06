@@ -30,6 +30,7 @@ export const Navbar = () => {
             <img className="edu-logo" src="./images/logo2.png" alt="" />
             <img
               className="edu-word"
+              id="ewy"
               onClick={() => navigate("/")}
               src="./images/Eduleague.png"
               alt=""
@@ -102,10 +103,10 @@ export const Navbar = () => {
           </Link>
         </div>
         <div className="nav-quiz-info">
-          <div className="left">
+          <div className="left" onClick={() => navigate("/createQuiz")}>
             <small>create</small> <strong>quiz</strong>
           </div>
-          <div className="right">
+          <div className="right" onClick={() => navigate("/joinQuiz")}>
             <small>join</small> <strong>quiz</strong>
           </div>
         </div>

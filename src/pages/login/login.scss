@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .login {
   background-image: url("../../../public/images/bg.png");
   background-position: center;
@@ -36,6 +38,9 @@
     justify-content: center;
     height: calc(100vh - 120px);
     .login-card {
+      @include mobile {
+        flex-direction: column;
+      }
       height: 90%;
       width: 90%;
       background: white;
@@ -47,10 +52,17 @@
         flex-direction: column;
         padding: 60px 50px;
         gap: 40px;
+        @include mobile {
+          padding: 10px 50px;
+          gap: 0px;
+        }
         .l-top {
           display: flex;
           flex-direction: column;
           gap: 10px;
+          @include mobile {
+            font-size: 12px;
+          }
         }
         .l-bottom {
           display: flex;
@@ -59,6 +71,9 @@
             height: 300px;
             width: 300px;
             margin-right: 60px;
+            @include mobile {
+              display: none;
+            }
           }
         }
       }
@@ -105,6 +120,9 @@
             align-items: center;
             justify-content: space-between;
             font-weight: 500;
+            @include mobile {
+              font-size: 14px;
+            }
 
             .form-rem {
               display: flex;

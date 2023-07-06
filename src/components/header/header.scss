@@ -1,3 +1,4 @@
+@import "../../App.scss";
 .header {
   min-height: 100vh;
   background-image: url("../../../public/images/Rectangle\ 500.png");
@@ -25,6 +26,9 @@
       h1 {
         font-weight: 700;
         font-size: 2.8rem;
+        @include mobile {
+          font-size: 1.5rem;
+        }
 
         span {
           color: rgba(252, 198, 89, 1);
@@ -37,6 +41,9 @@
       p {
         margin-bottom: 40px;
         font-weight: 500;
+        @include mobile {
+          text-align: center;
+        }
       }
       button {
         cursor: pointer;
@@ -55,12 +62,22 @@
       img {
         width: 80%;
         height: 80%;
+        @include mobile {
+          width: 60%;
+          height: 80%;
+        }
       }
     }
     .header-bottom {
       width: 100%;
       display: flex;
       gap: 40px;
+
+      @include mobile {
+        flex-direction: column;
+        align-items: center;
+        width: max-content;
+      }
 
       .header-bottom-card {
         background-color: white;
@@ -69,6 +86,10 @@
         box-shadow: -11px 4px 33px 0px rgba(0, 0, 0, 0.315);
         padding: 10px;
         width: 33%;
+
+        @include tablet {
+          width: 30%;
+        }
 
         margin-bottom: 40px;
         gap: 13px;
@@ -104,6 +125,11 @@
         gap: 15px;
         border-right: 3px solid rgba(252, 198, 89, 1);
         height: max-content;
+
+        @include tablet {
+          width: 25%;
+          font-size: 14px;
+        }
 
         h2 {
           span {
