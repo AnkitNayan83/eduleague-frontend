@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navbar2 } from "../../components/navbar2/Navbar2";
 import { hideLoading, showLoading } from "../../redux/slice/alertSlice";
 import { PropagateLoader } from "react-spinners";
+import { axiosRequest } from "../../axiosInstance";
 
 export const OneV = () => {
   const user = useSelector((state) => state.auth.user);
@@ -28,14 +29,11 @@ export const OneV = () => {
     const fetchQuiz = async () => {
       try {
         dispatch(showLoading());
-        const response = await axios.put(
-          `https://eduleague-6le7o.ondigitalocean.app/api/v1/quiz/${quizId}`,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        );
+        const response = await axiosRequest.put(`/quiz/${quizId}`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
         console.log(response);
         setResponse(response.data);
         dispatch(hideLoading());
