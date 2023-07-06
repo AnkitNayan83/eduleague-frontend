@@ -59,3 +59,22 @@
     color: #fcc659;
   }
 }
+
+.f2{
+  @include mobile {
+    display: none;
+  }
+}
+.f3{
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+h4{
+  @include mobile {
+    display: none;
+  }
+}

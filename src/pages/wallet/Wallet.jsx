@@ -96,7 +96,7 @@ export const Wallet = () => {
               </div>
               <div className="right-part">
                 <h4>Add amount</h4>
-                <input type="text" placeholder="Your Name" />
+                <input type="text" placeholder="Enter Amount" />
                 <button>Withdraw</button>
               </div>
             </>
