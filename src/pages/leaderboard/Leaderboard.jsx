@@ -13,7 +13,7 @@ export const Leaderboard = () => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.alerts.loading);
   const [participants, setParticipants] = useState([]);
-  const quizId = params.quizId;
+  const [quizId, setQuizId] = useState(params.quizId);
 
   useEffect(() => {
     const getQuiz1 = async () => {
@@ -58,7 +58,7 @@ export const Leaderboard = () => {
                 time={"Time taken"}
               />
               {participants?.map((item, i) => (
-                <Leaderboard
+                <LeaderboardCard
                   key={i}
                   rank={i + 1}
                   score={item.totalMarks}
