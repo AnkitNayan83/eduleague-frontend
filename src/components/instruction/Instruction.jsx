@@ -24,13 +24,14 @@ export const Instruction = ({
       const token = localStorage.getItem("token");
       const { data } = await axiosRequest.post(
         "/quiz/create",
-        { course, subject, topic, entryCoins },
+        { course, subject, topic, entryCoins, type:"single" },
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }
       );
+      console.log(data);
       dispatch(hideLoading());
       navigate(`/quiz/${data?.quiz._id}`, {
         state: {
@@ -39,6 +40,7 @@ export const Instruction = ({
           type: data?.quiz.type,
         },
       });
+
       toast.success("quiz created Successfully");
     } catch (error) {
       console.log(error);

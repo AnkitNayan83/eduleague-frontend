@@ -147,11 +147,11 @@ export const Result = ({
 
             <div className="btn-container1">
               {(isCreator && type === "single") ||
-                (type === "community" && (
+                (type === "community") ? (
                   <button className="skip btn1" onClick={handleShareClick}>
                     Share
                   </button>
-                ))}
+                ):""}
               {loading ? (
                 <div>Your result is being processed</div>
               ) : !isCreator || type === "community" ? (
