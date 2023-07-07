@@ -42,7 +42,7 @@ export const JoinQuizCard = () => {
       dispatch(showLoading());
       const res = await axiosRequest.post(
         `/participant/create/${quizId}`,
-        {},
+        { entryCoins: quiz?.entryCoins },
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
