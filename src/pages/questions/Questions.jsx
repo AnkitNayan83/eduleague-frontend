@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 
 export const Questions = () => {
   const location = useLocation();
+  const type = location.state.type;
+  const [startTime, setStartTime] = useState(Date.now());
   // eslint-disable-next-line
   const [questions, setQuestions] = useState(location.state.questions);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -31,7 +33,6 @@ export const Questions = () => {
 
   return (
     <div className="question-container">
-      {/* <Navbar2 pageName={"Create Quiz"} /> */}
       {currentQuestion ? (
         <div className="question-wrapper">
           <h3 className="question-heading">
@@ -53,6 +54,8 @@ export const Questions = () => {
           quizId={params.quizId}
           creatorId={user._id}
           partId={location.state.participant}
+          startTime={startTime}
+          type={type}
         />
       )}
     </div>

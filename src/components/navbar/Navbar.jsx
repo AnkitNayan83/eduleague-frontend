@@ -99,6 +99,7 @@ export const Navbar = () => {
                 {user?.fName + " " + (user?.lName || "")}
               </span>
               <span className="mob-info">{user?.phoneNo}</span>
+              <span className="ref-code">Referral: {user?.referralCode}</span>
             </div>
           </Link>
         </div>

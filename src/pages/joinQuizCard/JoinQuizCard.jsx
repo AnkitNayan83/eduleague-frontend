@@ -27,7 +27,7 @@ export const JoinQuizCard = () => {
         });
         dispatch(hideLoading());
         console.log(data.quiz);
-        setQuiz(data.quiz);
+        setQuiz(data?.quiz);
       } catch (error) {
         console.log(error);
         dispatch(hideLoading());
@@ -54,6 +54,7 @@ export const JoinQuizCard = () => {
           state: {
             questions: quiz?.questions,
             participant: res.data?.savedParticipant._id,
+            type: quiz?.type,
           },
         });
       } else {

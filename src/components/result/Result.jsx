@@ -9,12 +9,13 @@ export const Result = ({
   correctAnswer,
   skipAnswer,
   quizId,
-  creatorId,
+  startTime,
   partId,
+  type,
 }) => {
   const totalQuestions = 10;
   const incorrectAnswer = totalQuestions - (correctAnswer + skipAnswer);
-  const negativeMarking = 0.25; // Negative marking value for each incorrect answer
+  const negativeMarking = 0.25;
   const finalScore = correctAnswer - incorrectAnswer * negativeMarking;
   const [showSharePopup, setShowSharePopup] = useState(false);
   const dispatch = useDispatch();
@@ -36,21 +37,28 @@ export const Result = ({
   };
 
   const handleResult = () => {
-    navigate(`/result/${quizId}`, {
-      state: {
-        finalScore: finalScore,
-        quizId: quizId,
-      },
-    });
+    console.log(type);
+    if (type === "community") {
+      navigate(`/leaderboard/${quizId}`);
+    } else {
+      navigate(`/result/${quizId}`, {
+        state: {
+          finalScore: finalScore,
+          quizId: quizId,
+        },
+      });
+    }
   };
   useEffect(() => {
     const saveParticipantQ = async () => {
       try {
         dispatch(showLoading());
+        const endTime = Date.now();
         const id = partId;
         const incorrectAnswer = 10 - correctAnswer - skipAnswer;
         const totalMarks = correctAnswer - 0.25 * incorrectAnswer;
-        const timeTaken = 60;
+        const timeTaken = Math.floor((endTime - startTime) / 1000);
+        console.log(endTime, timeTaken, startTime);
         // eslint-disable-next-line
         const { data } = await axiosRequest.put(
           `/participant/update/${id}`,
@@ -68,8 +76,8 @@ export const Result = ({
             },
           }
         );
-        console.log(data.quiz.creator)
-        setIsCreator(data.quiz.creator  === user?._id);
+        console.log(data.quiz.creator);
+        setIsCreator(data.quiz.creator === user?._id);
         dispatch(hideLoading());
       } catch (error) {
         dispatch(hideLoading());
@@ -138,26 +146,24 @@ export const Result = ({
             </div>
 
             <div className="btn-container1">
-              {isCreator ? (
+              {isCreator && type === "single" ? (
                 <button className="skip btn1" onClick={handleShareClick}>
                   Share
                 </button>
+              ) : loading ? (
+                <div>Your result is being processed</div>
               ) : (
-                loading ? (
-                  <div>Your result is being processed</div>
-                ) : (
-                  <button className="next btn1" onClick={handleResult}>
-                    View Result
-                  </button>
-                )
+                <button className="next btn1" onClick={handleResult}>
+                  View Result
+                </button>
               )}
             </div>
           </div>
           <div className="btn-container2">
-              <button className="home-btn" onClick={handelClick}>
-                Go to Home
-              </button>
-            </div>
+            <button className="home-btn" onClick={handelClick}>
+              Go to Home
+            </button>
+          </div>
         </div>
       </div>
       {showSharePopup && (

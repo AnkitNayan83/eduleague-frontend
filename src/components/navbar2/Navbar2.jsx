@@ -52,6 +52,7 @@ export const Navbar2 = ({ pageName }) => {
               {user?.fName + " " + (user?.lName || "")}
             </span>
             <span className="mob-info">{user?.phoneNo}</span>
+            <span className="ref-code">Referral: {user?.referralCode}</span>
           </div>
         </div>
         <div className="nav-quiz-info">

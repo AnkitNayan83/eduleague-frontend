@@ -8,6 +8,7 @@ import { axiosRequest } from "../../axiosInstance";
 import { useDispatch, useSelector } from "react-redux";
 import { hideLoading, showLoading } from "../../redux/slice/alertSlice";
 import { HashLoader } from "react-spinners";
+import { toast } from "react-toastify";
 
 export const Register = () => {
   const [fName, setFname] = useState("");
@@ -21,6 +22,10 @@ export const Register = () => {
   const loading = useSelector((state) => state.alerts.loading);
 
   const handelRegister = async () => {
+    if (!phoneNo || !fName || !password) {
+      toast.error("please provide all fields");
+      return;
+    }
     if (!validator.isMobilePhone(phoneNo)) {
       alert("Enter a valid mobile number");
       return;
@@ -41,6 +46,8 @@ export const Register = () => {
         if (data.success) {
           localStorage.setItem("token", data.user.token);
           navigate("/");
+        } else {
+          toast.error("please provide all details");
         }
       } catch (error) {
         dispatch(hideLoading());

@@ -19,6 +19,10 @@ export const Login = () => {
   const loading = useSelector((state) => state.alerts.loading);
 
   const handelLogin = async () => {
+    if (!phoneNo || !password) {
+      toast.error("Please provide all fields");
+      return;
+    }
     try {
       dispatch(showLoading());
       const { data } = await axiosRequest.post("/auth/login", {
@@ -30,6 +34,8 @@ export const Login = () => {
         localStorage.setItem("token", data.token);
         navigate("/");
         toast.success("logged in successfully");
+      } else {
+        toast.error("wrong mobile number or password");
       }
     } catch (error) {
       dispatch(hideLoading());

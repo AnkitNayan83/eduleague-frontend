@@ -36,6 +36,7 @@ export const Instruction = ({
         state: {
           questions: data?.questions,
           participant: data?.quiz.participants[0]._id,
+          type: data?.quiz.type,
         },
       });
       toast.success("quiz created Successfully");
@@ -54,9 +55,9 @@ export const Instruction = ({
         <>
           <div className="Itop">
             <div className="Ileft">
-              <div className="choices">Course-{course}</div>
-              <div className="choices">Subject-{subject}</div>
-              <div className="choices">Topic-{topic}</div>
+              <div className="Ichoices">Course-{course}</div>
+              <div className="Ichoices">Subject-{subject}</div>
+              <div className="Ichoices">Topic-{topic}</div>
             </div>
             <div className="Iright">
               <span>Money you have to put</span>

@@ -6,6 +6,14 @@
   min-height: 100vh;
   overflow-x: hidden;
 
+  .spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
   .container {
     display: flex;
     align-items: center;

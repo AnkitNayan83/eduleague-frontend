@@ -37,12 +37,12 @@
       gap: 10px;
       flex: 1;
 
-      .choices {
+      .Ichoices {
         padding: 10px 20px;
         background-color: rgba(80, 57, 132, 1);
         color: white;
         border-radius: 5px;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 600;
       }
     }
@@ -64,7 +64,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     .I-icons {
       display: flex;
       align-items: center;
@@ -77,12 +77,12 @@
     }
   }
   .I-desc {
-    margin: 30px 0;
+    margin: 15px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 7px;
     h1 {
       @include mobile {
         font-size: 22px;
