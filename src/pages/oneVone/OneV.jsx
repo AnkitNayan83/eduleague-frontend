@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Lost } from "../../components/lost/Lost";
 import { Win } from "../../components/win/Win";
 import { Score } from "../../components/score/Score";
 import "./oneV.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Navbar2 } from "../../components/navbar2/Navbar2";
 import { hideLoading, showLoading } from "../../redux/slice/alertSlice";
 import { PropagateLoader } from "react-spinners";
 import { axiosRequest } from "../../axiosInstance";
@@ -57,8 +55,9 @@ export const OneV = () => {
         ) : (
           <div className="white-box">
             <div className="left-wrap">
-              {user?._id == response?.winner?.user?._id ? (
+              {user?._id === response?.winner?.user?._id ? (
                 <Win winAmount={response?.quiz?.entryCoins} />
+
               ) : (
                 <Lost winAmount={response?.quiz?.entryCoins} />
               )}
@@ -66,8 +65,12 @@ export const OneV = () => {
             </div>
             <div className="righti">
               <div className="right-wrap">
-                {response?.sortedParticipants?.length > 0 ? (
+               {response?.sortedParticipants?.length > 0 ? (
+              <>
+                {user?._id === response?.sortedParticipants[0]?.user ? (
                   <>
+                  {console.log(response?.sortedParticipants[0]?.user)}
+                  {console.log(user?._id)}
                     <Score
                       marks={response?.sortedParticipants[0]?.totalMarks}
                       mesg={"Your Score"}
@@ -79,8 +82,22 @@ export const OneV = () => {
                     />
                   </>
                 ) : (
-                  <p>No participants found</p>
+                  <>
+                    <Score
+                      marks={response?.sortedParticipants[1]?.totalMarks}
+                      mesg={"Your Score"}
+                    />
+                    <div className="div">Vs</div>
+                    <Score
+                      marks={response?.sortedParticipants[0]?.totalMarks}
+                      mesg={"Opponent Score"}
+                    />
+                  </>
                 )}
+              </>
+            ) : (
+              <p>No participants found</p>
+            )}
               </div>
 
               <div className="btn">
