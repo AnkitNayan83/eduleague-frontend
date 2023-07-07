@@ -45,7 +45,7 @@ export const Navbar2 = ({ pageName }) => {
         </div>
         <div className="nav-user-info">
           <div className="left">
-            <img src={"./images/prof.png"} alt="" />
+            <img src={"./images/prof.svg"} alt="" />
           </div>
           <div className="right">
             <span className="name-info">
@@ -56,10 +56,10 @@ export const Navbar2 = ({ pageName }) => {
           </div>
         </div>
         <div className="nav-quiz-info">
-          <div className="left" onClick={() => navigate("/joinQuiz")}>
+          <div className="left" onClick={() => navigate("/createQuiz")}>
             <small>create</small> <strong>quiz</strong>
           </div>
-          <div className="right" onClick={() => navigate("/createQuiz")}>
+          <div className="right" onClick={() => navigate("/joinQuiz")}>
             <small>join</small> <strong>quiz</strong>
           </div>
         </div>

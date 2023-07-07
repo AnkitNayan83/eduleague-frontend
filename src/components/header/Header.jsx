@@ -13,8 +13,9 @@ export const Header = () => {
             your <span>wallet</span>
           </h1>
           <p>join our league and turn knowledege into rewards</p>
-
-          <button>Get started</button>
+          <Link to={"/joinQuiz"}>
+            <button>Get started</button>
+          </Link>
         </div>
         <div className="header-middle">
           <img src="./images/Group.png" alt="" />
@@ -28,7 +29,7 @@ export const Header = () => {
                   alt=""
                   className="bottom-icon1"
                 />
-                <h3>Quiz Creation</h3>
+                <h3>Create Quiz</h3>
                 <p>
                   Allow users to create quizzes with multiple choice questions
                   and choose topics they want

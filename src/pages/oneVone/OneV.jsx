@@ -32,7 +32,6 @@ export const OneV = () => {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
-        console.log(response);
         setResponse(response.data);
         dispatch(hideLoading());
       } catch (error) {
@@ -40,8 +39,8 @@ export const OneV = () => {
         console.log(error);
       }
     };
-
     fetchQuiz();
+    // eslint-disable-next-line
   }, [quizId]);
 
   return (
@@ -57,7 +56,6 @@ export const OneV = () => {
             <div className="left-wrap">
               {user?._id === response?.winner?.user?._id ? (
                 <Win winAmount={response?.quiz?.entryCoins} />
-
               ) : (
                 <Lost winAmount={response?.quiz?.entryCoins} />
               )}
@@ -65,39 +63,39 @@ export const OneV = () => {
             </div>
             <div className="righti">
               <div className="right-wrap">
-               {response?.sortedParticipants?.length > 0 ? (
-              <>
-                {user?._id === response?.sortedParticipants[0]?.user ? (
+                {response?.sortedParticipants?.length > 0 ? (
                   <>
-                  {console.log(response?.sortedParticipants[0]?.user)}
-                  {console.log(user?._id)}
-                    <Score
-                      marks={response?.sortedParticipants[0]?.totalMarks}
-                      mesg={"Your Score"}
-                    />
-                    <div className="div">Vs</div>
-                    <Score
-                      marks={response?.sortedParticipants[1]?.totalMarks}
-                      mesg={"Opponent Score"}
-                    />
+                    {user?._id === response?.sortedParticipants[0]?.user ? (
+                      <>
+                        {console.log(response?.sortedParticipants[0]?.user)}
+                        {console.log(user?._id)}
+                        <Score
+                          marks={response?.sortedParticipants[0]?.totalMarks}
+                          mesg={"Your Score"}
+                        />
+                        <div className="div">Vs</div>
+                        <Score
+                          marks={response?.sortedParticipants[1]?.totalMarks}
+                          mesg={"Opponent Score"}
+                        />
+                      </>
+                    ) : (
+                      <>
+                        <Score
+                          marks={response?.sortedParticipants[1]?.totalMarks}
+                          mesg={"Your Score"}
+                        />
+                        <div className="div">Vs</div>
+                        <Score
+                          marks={response?.sortedParticipants[0]?.totalMarks}
+                          mesg={"Opponent Score"}
+                        />
+                      </>
+                    )}
                   </>
                 ) : (
-                  <>
-                    <Score
-                      marks={response?.sortedParticipants[1]?.totalMarks}
-                      mesg={"Your Score"}
-                    />
-                    <div className="div">Vs</div>
-                    <Score
-                      marks={response?.sortedParticipants[0]?.totalMarks}
-                      mesg={"Opponent Score"}
-                    />
-                  </>
+                  <p>No participants found</p>
                 )}
-              </>
-            ) : (
-              <p>No participants found</p>
-            )}
               </div>
 
               <div className="btn">

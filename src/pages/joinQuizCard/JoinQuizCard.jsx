@@ -26,7 +26,6 @@ export const JoinQuizCard = () => {
           },
         });
         dispatch(hideLoading());
-        console.log(data.quiz);
         setQuiz(data?.quiz);
       } catch (error) {
         console.log(error);
@@ -76,7 +75,7 @@ export const JoinQuizCard = () => {
         </div>
       ) : (
         <>
-          <Navbar2 />
+          <Navbar2 pageName={"Join Quiz"} />
           <div className="JQC-wrapper">
             <div className="JQC-container">
               <div className="top">
@@ -89,9 +88,9 @@ export const JoinQuizCard = () => {
                 </h3>
               </div>
               <div className="middle">
-                <div className="quiz-opt">Course {quiz?.course}</div>
-                <div className="quiz-opt">Subject {quiz?.subject}</div>
-                <div className="quiz-opt">Topic {quiz?.topic}</div>
+                <div className="quiz-opt">Course: {quiz?.course}</div>
+                <div className="quiz-opt">Subject: {quiz?.subject}</div>
+                <div className="quiz-opt">Topic: {quiz?.topic}</div>
               </div>
               <div className="bottom">
                 <span>
@@ -99,7 +98,7 @@ export const JoinQuizCard = () => {
                 </span>
                 <div className="JQC-btn">
                   <button className="max-price">
-                    Win upto{" "}
+                    Win upto Rs{" "}
                     <strong>
                       {(quiz?.entryCoins || 0) + (quiz?.entryCoins || 0) * 0.6}
                     </strong>

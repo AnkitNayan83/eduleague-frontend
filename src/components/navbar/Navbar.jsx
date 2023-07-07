@@ -32,7 +32,7 @@ export const Navbar = () => {
               className="edu-word"
               id="ewy"
               onClick={() => navigate("/")}
-              src="./images/Eduleague.png"
+              src="./images/Eduleague.svg"
               alt=""
             />
           </div>
@@ -59,7 +59,7 @@ export const Navbar = () => {
                 <Link to={"/wallet"}>
                   <div className="nav-wallet">
                     <span>{user?.balance}</span>
-                    <img src="./images/wallet.png" alt="" />
+                    <img src="./images/wallet.svg" alt="" />
                   </div>
                 </Link>
               )}
@@ -91,7 +91,7 @@ export const Navbar = () => {
         </div>
         <div className="nav-user-info">
           <div className="left">
-            <img src="./images/prof.png" alt="" />
+            <img src="./images/prof.svg" alt="" />
           </div>
           <Link to={"/editProfile"}>
             <div className="right">

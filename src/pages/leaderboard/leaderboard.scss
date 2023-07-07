@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .leaderboard {
   background-image: url("../../../public/images/bg.png");
   background-position: center;
@@ -39,6 +41,10 @@
       justify-content: center;
       gap: 20px;
       width: 60%;
+
+      @include mobile {
+        width: 90%;
+      }
     }
   }
 }

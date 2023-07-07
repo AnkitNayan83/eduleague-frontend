@@ -103,7 +103,6 @@ export const Wallet = () => {
           ) : (
             <>
               <div className="right-part2">
-                {/* {console.log(walletData)} */}
                 {walletData?.log?.map((item, i) => (
                   <Transaction log={item} key={i} />
                 ))}

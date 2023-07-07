@@ -37,7 +37,6 @@ export const Result = ({
   };
 
   const handleResult = () => {
-    console.log(type);
     if (type === "community") {
       navigate(`/leaderboard/${quizId}`);
     } else {
@@ -58,7 +57,6 @@ export const Result = ({
         const incorrectAnswer = 10 - correctAnswer - skipAnswer;
         const totalMarks = correctAnswer - 0.25 * incorrectAnswer;
         const timeTaken = Math.floor((endTime - startTime) / 1000);
-        console.log(endTime, timeTaken, startTime);
         // eslint-disable-next-line
         const { data } = await axiosRequest.put(
           `/participant/update/${id}`,
@@ -76,7 +74,6 @@ export const Result = ({
             },
           }
         );
-        console.log(data.quiz.creator);
         setIsCreator(data.quiz.creator === user?._id);
         dispatch(hideLoading());
       } catch (error) {
@@ -146,12 +143,13 @@ export const Result = ({
             </div>
 
             <div className="btn-container1">
-              {(isCreator && type === "single") ||
-                (type === "community") ? (
-                  <button className="skip btn1" onClick={handleShareClick}>
-                    Share
-                  </button>
-                ):""}
+              {(isCreator && type === "single") || type === "community" ? (
+                <button className="skip btn1" onClick={handleShareClick}>
+                  Share
+                </button>
+              ) : (
+                ""
+              )}
               {loading ? (
                 <div>Your result is being processed</div>
               ) : !isCreator || type === "community" ? (
@@ -163,13 +161,12 @@ export const Result = ({
               )}
             </div>
           </div>
-          
         </div>
         <div className="btn-container2">
-            <button className="home-btn" onClick={handelClick}>
-              Go to Home
-            </button>
-          </div>
+          <button className="home-btn" onClick={handelClick}>
+            Go to Home
+          </button>
+        </div>
       </div>
       {showSharePopup && (
         <div className="share-popup">
@@ -177,7 +174,7 @@ export const Result = ({
             <h3>Share with friends</h3>
             <input
               type="text"
-              value={`http://localhost:3000/joinQuiz/${quizId}`}
+              value={`https://seal-app-bupay.ondigitalocean.app/joinQuiz/${quizId}`}
               readOnly
               onClick={(e) => e.target.select()}
             />

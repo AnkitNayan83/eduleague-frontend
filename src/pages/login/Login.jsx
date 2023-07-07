@@ -101,12 +101,12 @@ export const Login = () => {
           </div>
           <div className="right">
             <div className="r-top">
-              <h4>
+              <h5>
                 Dont have an account?{" "}
                 <Link to="/register">
                   <span>Create</span>
                 </Link>
-              </h4>
+              </h5>
             </div>
             <div className="r-middle">
               <div className="form-item">

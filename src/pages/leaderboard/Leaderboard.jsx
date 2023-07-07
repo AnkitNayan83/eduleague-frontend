@@ -25,7 +25,6 @@ export const Leaderboard = () => {
           },
         });
         dispatch(hideLoading());
-        console.log(data.quiz);
         setParticipants(data?.sortedParticipants);
       } catch (error) {
         console.log(error);
@@ -45,7 +44,7 @@ export const Leaderboard = () => {
         </div>
       ) : (
         <>
-          <Navbar2 pageName={"create Quiz > Leaderboard"} />
+          <Navbar2 pageName={"Leaderboard"} />
           <div className="container">
             <div className="top">
               <h1>Quiz Result</h1>
