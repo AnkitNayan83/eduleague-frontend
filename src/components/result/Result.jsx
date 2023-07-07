@@ -163,12 +163,13 @@ export const Result = ({
               )}
             </div>
           </div>
-          <div className="btn-container2">
+          
+        </div>
+        <div className="btn-container2">
             <button className="home-btn" onClick={handelClick}>
               Go to Home
             </button>
           </div>
-        </div>
       </div>
       {showSharePopup && (
         <div className="share-popup">
