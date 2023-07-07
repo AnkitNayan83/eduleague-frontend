@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .background {
   position: fixed;
   top: 0;
@@ -12,22 +14,36 @@
 }
 .join-container {
   display: flex;
-  height: 100vh;
+  height: calc(100vh - 100px);
   overflow: auto; /* Enable scrolling */
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+  }
   .left-part {
     margin: 2rem;
     flex-basis: 1;
     color: white;
     width: 27%;
+    @include mobile {
+      margin: 0;
+    }
 
     .join-h3 {
       font-size: 2rem;
       border-left: 8px solid #fcc659;
       padding-left: 0.7rem;
       margin-block: 1rem;
+      @include mobile {
+        font-size: 1rem;
+
+      }
       p {
         font-size: 1.2rem;
         margin-bottom: 1.2rem;
+        @include mobile {
+          font-size: 1rem;
+        }
       }
     }
 
@@ -37,6 +53,10 @@
       justify-content: center;
       flex-direction: column;
       // gap: 2rem;
+      @include mobile {
+        flex-direction: row;
+        gap: 2rem;
+      }
 
       .btn {
         margin-block: 2rem;
@@ -49,6 +69,11 @@
         border-radius: 10px;
         font-size: 1.4rem;
         font-weight: 500;
+        @include mobile {
+          width: max-content;
+          height: 220px;
+          margin-block: 1rem;
+        }
       }
       .btn:hover {
         border: 6px solid #fcc659;
@@ -60,6 +85,9 @@
     margin: 2rem;
     flex-basis: 2;
     width: 70%;
+    @include mobile {
+      margin: 1rem;
+  }
     .join-h4 {
       color: white;
       font-size: 1.5rem;

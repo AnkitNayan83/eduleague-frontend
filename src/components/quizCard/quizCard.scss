@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .card-component{
     margin: 1.4rem;
     padding: 2rem;
@@ -9,14 +11,32 @@
     border-radius:15px ;
     position: relative;
     overflow: hidden;
+    @include mobile {
+        padding: 1rem;
+    }
     .left-side{
+        @include mobile {
+            display: flex;
+            // align-items: center;
+            // justify-content: center;
+            flex-direction: column;
+        }
         h4{
             font-size: 1.2rem;
             font-weight: 400;
             margin-block: 1.1rem;
+            @include mobile {
+                display: inline-block;
+                font-size: 1rem;
+                font-weight: 600;
+                margin-block: 0;
+            }
         }
         h5{
             font-size: 1rem;
+            @include mobile {
+                font-size: 0.7rem;
+            }
         }
         .topic{
             color: white;
@@ -25,15 +45,31 @@
             padding: 20px;
             border-radius: 10px;
             font-size: 1rem;
+            @include mobile {
+                width: 130%;
+                margin: 0;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
         }
+    
         .lower-part{
             display: flex;
             align-items: center;
             justify-content: center;
             gap:10px;
+            @include mobile{
+                gap: 5px;
+            }
             h3{
                 font-size: 1.4rem;
                 color: #FCC659;
+                @include mobile{
+                    font-size: 1rem;
+                }
             }
             h4{
                 font-size: .9rem;
@@ -41,6 +77,9 @@
         }
     }
     .right-side{
+        @include mobile{
+            margin-bottom: 6rem;
+        }
         .right-block{
             position: absolute;
             top:0;
@@ -51,11 +90,17 @@
             background-color:#312350;
             padding: 12px 20px;
             border-radius: 5px;
+            @include mobile {
+                display: none;
+            }
         }
         h5{
             color:#FCC659;
             font-size: 0.7rem;
             margin-top: 30px;
+            @include mobile {
+                
+            }
         }
         .topic{
             color: white;
@@ -79,6 +124,9 @@
             h4{
                 font-size: .9rem;
             }
+            @include mobile {
+                display: none;
+            }
         }
         .h3-bottom{
             margin-block: 1rem;
@@ -90,6 +138,14 @@
                 position: absolute;
                
                 left: 38rem;
+                @include tablet{
+                    left: 14rem;
+                }
+
+                @include mobile{
+                    left: 5rem;
+                    bottom: 0.8rem;
+                }
                 // padding: 1rem 3rem;
                 // background-color: #FCC659;
                 background: linear-gradient(#FCC659 ,#FA8040 );
@@ -97,10 +153,25 @@
                 border-radius: 40px;
                 bottom: 10px;
                 font-size: large;
+
+                @include tablet{
+                    padding: 8px 30px;
+                }
+                @include mobile{
+                    left: 5px 5px;
+                    font-size: medium;
+                    
+                }
                 // margin: 2rem;
                 cursor: pointer;
             }
         }
     }
     
+}
+
+.t2{
+    @include mobile {
+        display: none;
+    }
 }
