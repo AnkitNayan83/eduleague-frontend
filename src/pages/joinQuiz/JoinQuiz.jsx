@@ -56,7 +56,7 @@ export const JoinQuiz = () => {
               className="btn"
               onClick={() => handleQuizTypeClick("single")}
             >
-              One on One Quiz ＞
+              One on One ＞
             </button>
           </div>
         </div>

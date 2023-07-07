@@ -138,6 +138,14 @@
                 position: absolute;
                
                 left: 38rem;
+                @media only screen and (max-width: 1363px) {
+                    left: 300px ;
+                    
+                  }
+                  @media only screen and (max-width: 939px) {
+                    left: 300px ;
+                    padding: 12px 30px;
+                  }
                 @include tablet{
                     left: 14rem;
                 }
@@ -153,14 +161,14 @@
                 border-radius: 40px;
                 bottom: 10px;
                 font-size: large;
+                
 
                 @include tablet{
                     padding: 8px 30px;
                 }
                 @include mobile{
                     left: 5px 5px;
-                    font-size: medium;
-                    
+                    font-size: small;
                 }
                 // margin: 2rem;
                 cursor: pointer;
