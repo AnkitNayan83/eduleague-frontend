@@ -1,5 +1,11 @@
+@import "../../App.scss";
+
 .question-card{
     padding: 2rem 10rem;
+
+    @include tablet{
+       padding: 2rem;
+    }
     .question{
         font-size: 1.8rem;
     }
@@ -29,7 +35,9 @@
         align-items: center;
         justify-content: center;
         gap: 2rem;
-        
+        @include mobile{
+            gap: 1rem;
+        }
     }
     .btn1{
         padding: 1.7rem 7.7rem;
@@ -39,6 +47,13 @@
         background: transparent;
         border: 2px solid  #FCC659;
         cursor: pointer;
+        @include mobile{
+            padding: 1rem 2.7rem;
+            font-size: 1rem;
+        }
+        @include tablet{
+            padding: 1rem 5rem;
+        }
     }
     .next{
         background: linear-gradient(180deg, #A7FFFF 0%, #5B4EE2 0%, #AE79B6 100%);

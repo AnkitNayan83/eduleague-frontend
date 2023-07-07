@@ -38,7 +38,7 @@ export const QuizCard = (props) => {
           </div>
 
           <h5>Created By {creator?.fName || "user"}</h5>
-          <h5 className="topic">Topic - {topic}</h5>
+          <h5 className="topic t2">Topic - {topic}</h5>
           <div className="lower-part">
             <h4 className="h3-bottom">Win upto</h4>
             <h3 className="h3-bottom"> ₹ {entryCoins + entryCoins * 0.6}</h3>
