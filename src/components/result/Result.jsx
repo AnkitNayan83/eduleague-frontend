@@ -174,7 +174,7 @@ export const Result = ({
             <h3>Share with friends</h3>
             <input
               type="text"
-              value={`https://seal-app-bupay.ondigitalocean.app/joinQuiz/${quizId}`}
+              value={`https://eduleague.in/joinQuiz/${quizId}`}
               readOnly
               onClick={(e) => e.target.select()}
             />
