@@ -13,6 +13,7 @@ export const Leaderboard = () => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.alerts.loading);
   const [participants, setParticipants] = useState([]);
+  // eslint-disable-next-line
   const [quizId, setQuizId] = useState(params.quizId);
 
   useEffect(() => {
