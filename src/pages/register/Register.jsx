@@ -44,7 +44,7 @@ export const Register = () => {
         });
         dispatch(hideLoading());
         if (data.success) {
-          localStorage.setItem("token", data.user.token);
+          localStorage.setItem("token", data?.token);
           navigate("/");
         } else {
           toast.error("please provide all details");
