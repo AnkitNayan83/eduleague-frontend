@@ -73,7 +73,9 @@ export const Navbar2 = ({ pageName }) => {
           <div className="menu-option" onClick={() => navigate("/about")}>
             About Us
           </div>
-          <div className="menu-option">FAQ</div>
+          <a href="/#fqa">
+            <div className="menu-option">FAQ</div>
+          </a>
           <div className="menu-option">Help and Support</div>
           <div className="menu-option" onClick={handelLogOut}>
             Log out

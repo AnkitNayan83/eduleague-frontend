@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./navbar.scss";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Close } from "@mui/icons-material";
+import { Close, WalletOutlined } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../../redux/slice/authSlice";
 import { toast } from "react-toastify";
@@ -26,15 +26,9 @@ export const Navbar = () => {
     <div className="navbar">
       <div className="nav-container">
         <div className="nav-left">
-          <div className="logo">
+          <div className="logo" onClick={() => navigate("/")}>
             <img className="edu-logo" src="./images/logo2.png" alt="" />
-            <img
-              className="edu-word"
-              id="ewy"
-              onClick={() => navigate("/")}
-              src="./images/Eduleague.svg"
-              alt=""
-            />
+            <h3>Eduleague</h3>
           </div>
         </div>
         <div className="nav-right">
@@ -59,7 +53,7 @@ export const Navbar = () => {
                 <Link to={"/wallet"}>
                   <div className="nav-wallet">
                     <span>{user?.balance}</span>
-                    <img src="./images/wallet.svg" alt="" />
+                    <WalletOutlined />
                   </div>
                 </Link>
               )}
@@ -118,10 +112,14 @@ export const Navbar = () => {
           <Link to={"/wallet"}>
             <div className="menu-option">Wallet</div>
           </Link>
-          <div className="menu-option">Analyse</div>
-          <div className="menu-option">Leaderboard</div>
-          <div className="menu-option">About Us</div>
-          <div className="menu-option">FAQ</div>
+          {/* <div className="menu-option">Analyse</div> */}
+          {/* <div className="menu-option">Leaderboard</div> */}
+          <Link to={"/about"}>
+            <div className="menu-option">About Us</div>
+          </Link>
+          <a href="/#faq">
+            <div className="menu-option"> FAQ</div>
+          </a>
           <div className="menu-option">Help and Support</div>
           <div className="menu-option" onClick={handelLogOut}>
             Log out

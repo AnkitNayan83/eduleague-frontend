@@ -3,7 +3,7 @@ import "./faq.scss";
 
 export const Faq = () => {
   return (
-    <div className="faq">
+    <div className="faq" id="faq">
       <div className="faq-container">
         <div className="top">
           <h1>Frequently Asked Questions</h1>
