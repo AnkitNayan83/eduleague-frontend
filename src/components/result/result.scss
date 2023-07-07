@@ -24,7 +24,10 @@
     border-radius: 3rem;
     color: black;
     padding: 4rem;
-
+    @include mobile{
+      height: 70%;
+      border-radius:1.5rem ;
+    }
     .green1 {
       color: rgb(75, 219, 75);
     }
@@ -35,8 +38,14 @@
       padding-left: 4rem;
       // justify-content: center;
       gap: 8rem;
+
       @include tablet{
         gap: 1rem;
+      }
+      @include mobile{
+        flex-direction: column;
+        padding-left: 0;
+        padding: 1rem;
       }
       .purple-box {
         background-color: #6245a3;
@@ -103,6 +112,14 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    @include tablet{
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    @include mobile{
+      flex-direction: row;
+    }
   }
   .btn1 {
     padding: 1.7rem 5rem;
@@ -112,6 +129,12 @@
     background: linear-gradient(180deg, #a7ffff 0%, #5b4ee2 0%, #ae79b6 100%);
     border: 2px solid #fcc659;
     cursor: pointer;
+    @include tablet{
+      padding: 1rem 3rem;
+      width: 200px;
+      height: 100px;
+      font-size: 1rem;
+    }
   }
 
   .btn-container2 {
@@ -127,6 +150,12 @@
     align-items: center;
     justify-content: flex-end;
     margin-top: 2rem;
+    @include tablet{
+      margin-top: 0.7rem;
+    }
+    @include mobile{
+      justify-content: center;
+    }
   }
 }
 
