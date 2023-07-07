@@ -2,12 +2,15 @@
 
 .question-card{
     padding: 2rem 10rem;
-
+    scroll-behavior: auto;
     @include tablet{
        padding: 2rem;
     }
     .question{
         font-size: 1.8rem;
+        @include mobile{
+            font-size: 1.2rem;
+         }
     }
     .options{
         padding: 1rem;
@@ -47,12 +50,14 @@
         background: transparent;
         border: 2px solid  #FCC659;
         cursor: pointer;
-        @include mobile{
-            padding: 1rem 2.7rem;
-            font-size: 1rem;
-        }
         @include tablet{
             padding: 1rem 5rem;
+        }
+        @include mobile{
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            // height: 60px;
+            // width: 100px;
         }
     }
     .next{

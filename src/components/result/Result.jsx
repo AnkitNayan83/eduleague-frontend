@@ -147,6 +147,7 @@ export const Result = ({
                 <button className="skip btn1" onClick={handleShareClick}>
                   Share
                 </button>
+                
               ) : (
                 ""
               )}

@@ -57,6 +57,9 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        @include mobile{
+          padding: 2.5rem 4rem;
+        }
       }
       .right {
         display: flex;
@@ -64,6 +67,9 @@
         align-items: center;
         justify-content: center;
         gap: 4rem;
+        @include mobile{
+          gap: 2rem;
+        }
         .upper {
           display: flex;
           align-items: center;
@@ -135,6 +141,9 @@
       height: 100px;
       font-size: 1rem;
     }
+    // @include mobile{
+    //   width: 0;
+    // }
   }
 
   .btn-container2 {
