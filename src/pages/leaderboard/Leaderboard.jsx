@@ -55,7 +55,7 @@ export const Leaderboard = () => {
                 rank={"Rank"}
                 score={"Score"}
                 name={"User Name"}
-                time={"Time taken"}
+                time={"Time taken(sec)"}
               />
               {participants?.map((item, i) => (
                 <LeaderboardCard

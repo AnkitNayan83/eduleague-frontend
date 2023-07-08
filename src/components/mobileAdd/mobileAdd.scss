@@ -9,15 +9,17 @@
     height: 90%;
     display: flex;
     align-items: center;
-    justify-content: space-betweens;
 
     @include mobile {
       flex-direction: column-reverse;
-      margin-top: 50px;
+      margin-top: 50%;
     }
 
     .left {
       flex: 1;
+      @include mobile {
+        margin-bottom: 30%;
+      }
       .img-wrapper {
         background-color: #fcc659;
         border-radius: 50%;
@@ -46,6 +48,10 @@
       flex-direction: column;
       align-items: flex-end;
       gap: 10px;
+
+      @include mobile {
+        margin-top: 20%;
+      }
 
       h4 {
         color: rgba(252, 198, 89, 1);

@@ -55,6 +55,9 @@
     }
     .right {
       flex: 1;
+      @include mobile {
+        flex: 0;
+      }
       .img-wrapper {
         background-color: #fcc659;
         border-radius: 50%;
