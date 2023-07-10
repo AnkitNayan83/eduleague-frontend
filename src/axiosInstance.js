@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://eduleague-6le7o11.ondigitalocean.app/api/v1"; //production
+const BASE_URL = "https://eduleague.in/api/v1"; //production
 
 axios.defaults.withCredentials = true;
 export const axiosRequest = axios.create({
