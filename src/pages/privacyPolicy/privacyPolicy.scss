@@ -1,0 +1,12 @@
+.PP {
+  overflow-x: hidden;
+  min-height: 100vh;
+
+  .PP-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+  }
+}

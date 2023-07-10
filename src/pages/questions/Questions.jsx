@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 export const Questions = () => {
   const location = useLocation();
   const type = location.state.type;
+  // eslint-disable-next-line
   const [startTime, setStartTime] = useState(Date.now());
   // eslint-disable-next-line
   const [questions, setQuestions] = useState(location.state.questions);

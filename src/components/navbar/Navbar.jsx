@@ -44,7 +44,12 @@ export const Navbar = () => {
           <div className="nav-option" onClick={() => navigate("/about")}>
             About Us
           </div>
-          <div className="nav-option">FAQ</div>
+          <div
+            className="nav-option"
+            onClick={() => navigate("/privacyPolicy")}
+          >
+            Privacy Policy
+          </div>
           {loading ? (
             <BeatLoader color="#000" />
           ) : (
@@ -120,6 +125,9 @@ export const Navbar = () => {
           <a href="/#faq">
             <div className="menu-option"> FAQ</div>
           </a>
+          <Link to="/privacyPolicy">
+            <div className="menu-option">Privacy Policy</div>
+          </Link>
           <div className="menu-option">Help and Support</div>
           <div className="menu-option" onClick={handelLogOut}>
             Log out
