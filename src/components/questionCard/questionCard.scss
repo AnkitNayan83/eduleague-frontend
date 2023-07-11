@@ -61,6 +61,12 @@
         }
     }
     .next{
-        background: linear-gradient(180deg, #A7FFFF 0%, #5B4EE2 0%, #AE79B6 100%);
+        background: linear-gradient(180deg, #fcc659 0%, rgb(252, 198, 89) 0%, rgb(244, 155, 81) 100%);
+    }
+    .skip:hover{
+        background: linear-gradient(180deg, #f4d597 0%, rgb(245, 210, 140) 0%, rgb(255, 196, 149) 100%);
+    }
+    .next:hover{
+        background: transparent;
     }
 }
