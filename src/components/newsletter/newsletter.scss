@@ -35,7 +35,8 @@
 
       form {
         margin-top: 10px;
-        border-radius: 10px;
+        border-radius: 20px;
+        padding-left: 10px;
         background-color: white;
         input {
           border: none;
@@ -43,10 +44,10 @@
         }
         button {
           border: none;
-          border-radius: 10px;
+          border-radius: 20px;
           background-color: black;
           color: white;
-          padding: 8px;
+          padding: 10px;
         }
       }
     }
