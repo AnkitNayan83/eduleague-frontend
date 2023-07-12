@@ -110,7 +110,7 @@ export const Register = () => {
               <p>Sign up or register to play the quizz league</p>
             </div>
             <div className="l-bottom">
-              <img src="./images/login.png" alt="" />
+              <img src="./images/lg.gif" alt="" />
             </div>
           </div>
           <div className="right">

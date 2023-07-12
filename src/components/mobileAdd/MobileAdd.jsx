@@ -7,7 +7,7 @@ export const MobileAdd = () => {
       <div className="container">
         <div className="left">
           <div className="img-wrapper">
-            <img src="./images/mob-ad.png" alt="" />
+            <img src="./images/mob.png" alt="" />
           </div>
         </div>
         <div className="right">

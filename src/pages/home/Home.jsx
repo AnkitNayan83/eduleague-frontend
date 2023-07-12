@@ -8,6 +8,8 @@ import { MobileAdd } from "../../components/mobileAdd/MobileAdd";
 import { Faq } from "../../components/faq/Faq";
 import { Newsletter } from "../../components/newsletter/Newsletter";
 import { Helmet } from "react-helmet-async";
+import { Laptop } from "../../components/laptop/Laptop";
+import { Knowledge } from "../../components/knowledge/Knowledge";
 
 export const Home = () => {
   return (
@@ -44,7 +46,9 @@ export const Home = () => {
       <Navbar />
       <Header />
       <About />
+      <Laptop />
       <MobileAdd />
+      <Knowledge />
       <Faq />
       <Newsletter />
       <Footer />

@@ -1,11 +1,10 @@
 @import "../../App.scss";
 .header {
   min-height: 100vh;
-  background-image: url("../../../public/images/Rectangle\ 500.png");
+  background-image: url("../../../public/images/bgh.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-color: rgb(255, 255, 192);
   display: flex;
   justify-content: center;
 
@@ -14,7 +13,7 @@
     align-items: center;
     flex-direction: column;
     gap: 40px;
-    width: 1024px;
+    // width: 1024px;
 
     .header-top {
       margin-top: 50px;
@@ -55,7 +54,7 @@
       }
     }
     .header-middle {
-      width: 100%;
+      width: 80%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -69,9 +68,11 @@
       }
     }
     .header-bottom {
-      width: 100%;
+      width: 80%;
       display: flex;
-      gap: 40px;
+      align-items: flex-start;
+      // justify-content: space-evenly;
+      gap: 20px;
 
       @include mobile {
         flex-direction: column;
@@ -80,31 +81,39 @@
       }
 
       .header-bottom-card {
-        background-color: white;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        // background-color: rgb(214, 82, 82);
         border-radius: 20px;
         box-shadow: 10px 4px 26px 0px rgba(0, 0, 0, 0.171);
         box-shadow: -11px 4px 33px 0px rgba(0, 0, 0, 0.315);
         padding: 10px;
-        width: 33%;
+        height: 300px;
 
         @include tablet {
           width: 30%;
         }
 
         margin-bottom: 40px;
-        gap: 13px;
+        gap: 30px;
         .header-bottom-card-cnt {
           display: flex;
           flex-direction: column;
+          gap: 10px;
           img {
             width: 100px;
             height: 100px;
           }
+          h3 {
+            font-weight: 600;
+            font-size: 32px;
+          }
           p {
             word-spacing: 2px;
-            &.sm {
-              margin-bottom: 17px;
-            }
+            font-size: 20px;
           }
           .card-arrow {
             display: flex;
@@ -119,7 +128,9 @@
         }
       }
       .header-bottom-desc {
-        width: 33%;
+        flex: 1;
+        width: 23%;
+        height: 80%;
         display: flex;
         flex-direction: column;
         gap: 15px;
@@ -132,9 +143,13 @@
         }
 
         h2 {
+          font-size: 32px;
           span {
             color: #fcc659;
           }
+        }
+        p {
+          font-size: 20px;
         }
       }
     }

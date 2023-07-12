@@ -1,0 +1,64 @@
+.Laptop {
+  height: 100vh;
+  background-image: url("../../../public//images/lbg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .left {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 7rem;
+    z-index: 999;
+    margin-right: -60px;
+
+    .ol {
+      color: rgba(108, 108, 108, 1);
+      padding: 10px;
+      width: 400px;
+      text-align: center;
+      background-color: wheat;
+      border-radius: 20px;
+      z-index: 999;
+      font-weight: 600;
+      font-size: 30px;
+    }
+  }
+
+  .middle {
+    flex: 1;
+    z-index: 99;
+    img {
+      width: 600px;
+      height: 600px;
+    }
+  }
+
+  .right {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7rem;
+    z-index: 999;
+    margin-left: -60px;
+
+    .ol {
+      color: rgba(108, 108, 108, 1);
+      padding: 10px;
+      width: 400px;
+      text-align: center;
+      font-weight: 600;
+      background-color: wheat;
+      border-radius: 20px;
+      z-index: 999;
+      font-size: 30px;
+    }
+  }
+}

@@ -24,11 +24,7 @@ export const Header = () => {
           <div className="header-bottom-card">
             <Link to="/createQuiz">
               <div className="header-bottom-card-cnt">
-                <img
-                  src="./images/question1.png"
-                  alt=""
-                  className="bottom-icon1"
-                />
+                <img src="./images/cq.gif" alt="" className="bottom-icon1" />
                 <h3>Create Quiz</h3>
                 <p>
                   Allow users to create quizzes with multiple choice questions
@@ -43,7 +39,7 @@ export const Header = () => {
           <div className="header-bottom-card">
             <Link to="/joinQuiz">
               <div className="header-bottom-card-cnt">
-                <img src="./images/jqn.png" alt="" className="bottom-icon1" />
+                <img src="./images/jq.gif" alt="" className="bottom-icon1" />
                 <h3>Join Quiz</h3>
                 <p className="sm">
                   Join quiz created by different users on different topics and

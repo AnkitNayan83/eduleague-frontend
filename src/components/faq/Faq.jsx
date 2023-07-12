@@ -6,6 +6,7 @@ export const Faq = () => {
     <div className="faq" id="faq">
       <div className="faq-container">
         <div className="top">
+          <img src="./images/FBG.png" alt="" />
           <h1>Frequently Asked Questions</h1>
         </div>
         <div className="bottom">
@@ -92,7 +93,7 @@ export const Faq = () => {
           </div>
           <div className="faq-img">
             <div className="img-wrapper">
-              <img src="./images/faq.png" alt="" />
+              <img src="./images/fqq1.png" alt="" />
             </div>
           </div>
         </div>

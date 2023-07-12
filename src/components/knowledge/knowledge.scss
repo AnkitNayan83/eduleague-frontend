@@ -1,0 +1,21 @@
+.Knowledge {
+  background-image: url("../../../public/images/know.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10%;
+  p {
+    width: 80%;
+    word-spacing: 2px;
+    font-weight: 600;
+    font-size: 32px;
+    color: white;
+    span {
+      color: rgba(252, 198, 89, 1);
+    }
+  }
+}

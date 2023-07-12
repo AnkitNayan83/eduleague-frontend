@@ -96,7 +96,7 @@ export const Login = () => {
               <p>Sign up or login to play the quizz league</p>
             </div>
             <div className="l-bottom">
-              <img src="./images/login.png" alt="" />
+              <img src="./images/lg.gif" alt="" />
             </div>
           </div>
           <div className="right">
