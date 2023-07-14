@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./profile.scss";
 import { Helmet } from "react-helmet-async";
 import { Navbar2 } from "../../components/navbar2/Navbar2";
+import { EditProfile } from "../../components/editProfile/EditProfile";
+import { Kyc } from "../../components/kyc/Kyc";
+
+
 export const Profile = () => {
+  const [profile, setProfile] = useState(true);
+
   return (
     <div className="wallet-wrapper">
       <Helmet>
@@ -38,32 +44,14 @@ export const Profile = () => {
 
       <div className="profile-container">
         <div className="left-part">
-          <h4>Basic Information</h4>
+          <h4 onClick={()=>setProfile(true)}>Basic Information</h4>
+          <h4 onClick={()=>setProfile(false)}>KYC Verification</h4>
         </div>
         <>
           <div className="right-part2">
-            <div className="img-wrappper">
-              <img src="./images/prof.png" alt="" />
-            </div>
-            <div className="info-tab">
-              <div className="content">
-                <h4>First Name</h4>
-                <input type="text" placeholder="Enter your First Name" />
-              </div>
-              <div className="content">
-                <h4>Last Name</h4>
-                <input type="text" placeholder="Enter your Last Name" />
-              </div>
-
-              <div className="content">
-                <h4>Phone Number</h4>
-                <input type="text" placeholder="Enter your Phone no." />
-              </div>
-
-              <div className="btn-wrapper">
-                <button className="btn">Save Changes</button>
-              </div>
-            </div>
+            {profile ?
+              <EditProfile/>
+            :<Kyc/>}
           </div>
         </>
       </div>
