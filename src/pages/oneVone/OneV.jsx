@@ -65,10 +65,8 @@ export const OneV = () => {
               <div className="right-wrap">
                 {response?.sortedParticipants?.length > 0 ? (
                   <>
-                    {user?._id === response?.sortedParticipants[0]?.user ? (
+                    {user?._id === response?.sortedParticipants[0]?.user._id ? (
                       <>
-                        {console.log(response?.sortedParticipants[0]?.user)}
-                        {console.log(user?._id)}
                         <Score
                           marks={response?.sortedParticipants[0]?.totalMarks}
                           mesg={"Your Score"}

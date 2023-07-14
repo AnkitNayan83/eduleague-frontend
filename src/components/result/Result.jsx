@@ -54,9 +54,9 @@ export const Result = ({
         dispatch(showLoading());
         const endTime = Date.now();
         const id = partId;
-        const incorrectAnswer = 10 - correctAnswer - skipAnswer;
         const totalMarks = correctAnswer - 0.25 * incorrectAnswer;
         const timeTaken = Math.floor((endTime - startTime) / 1000);
+        console.log(correctAnswer, incorrectAnswer, skipAnswer);
         // eslint-disable-next-line
         const { data } = await axiosRequest.put(
           `/participant/update/${id}`,
@@ -147,7 +147,6 @@ export const Result = ({
                 <button className="skip btn1" onClick={handleShareClick}>
                   Share
                 </button>
-                
               ) : (
                 ""
               )}

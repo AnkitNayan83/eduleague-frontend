@@ -1,32 +1,36 @@
 @import "../../App.scss";
 
-.question-container{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: -1;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("../../../public/images/bg.png");
-    color: white;
-    .question-wrapper{
-        padding:5rem;
+.question-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../../public/images/bg.png");
+  color: white;
+  .question-wrapper {
+    padding: 5rem;
 
-        @include tablet{
-            margin-top: 4rem
-        }
-
-        @include mobile{
-            margin-top: 2rem;
-            padding: 1rem;
-        }
-        .question-heading{
-            font-size: 2rem;
-            
-        }
+    .question-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    
+
+    @include tablet {
+      margin-top: 4rem;
+    }
+
+    @include mobile {
+      margin-top: 2rem;
+      padding: 1rem;
+    }
+    .question-heading {
+      font-size: 2rem;
+    }
+  }
 }
