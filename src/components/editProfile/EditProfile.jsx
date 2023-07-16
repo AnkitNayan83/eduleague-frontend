@@ -43,7 +43,7 @@ export const EditProfile = () => {
 
               <div className="content">
                 <h4>Phone Number</h4>
-                <input value={phoneNumber} type="text" placeholder="Enter your Phone no." onChange={(e) => setPhoneNumber(e.target.value)} />
+                <input value={phoneNumber} type="text" placeholder="Enter your Phone no." disabled  />
               </div>
 
               <div className="btn-wrapper">
