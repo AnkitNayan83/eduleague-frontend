@@ -25,7 +25,7 @@ export const EditProfile = () => {
       location:location,
     };
     dispatch(setUser(updatedUser));
-    await axiosRequest.post("/user/update-user", {fName , lName , location}, {
+    await axiosRequest.put("/user/update-user", {fName , lName , location}, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

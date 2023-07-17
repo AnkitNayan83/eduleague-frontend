@@ -10,6 +10,8 @@ export const Profile = () => {
   const [profile, setProfile] = useState(true);
 
   return (
+    <div className="contain">
+       <Navbar2 pageName={"profile"} />
     <div className="wallet-wrapper">
       <Helmet>
         <title>{"Eduleague | Profile"}</title>
@@ -40,7 +42,6 @@ export const Profile = () => {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      {/* <Navbar2 pageName={"profile"} /> */}
 
       <div className="profile-container">
         <div className="left-part">
@@ -55,6 +56,7 @@ export const Profile = () => {
           </div>
         </>
       </div>
+    </div>
     </div>
   );
 };
