@@ -1,0 +1,66 @@
+.HAS {
+  height: 100vh;
+  background-image: url("../../../public/images/bg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+
+  .wrapper {
+    height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .container {
+      background-color: white;
+      width: 90%;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10%;
+
+      .top {
+        text-align: center;
+        padding: 7% 0;
+      }
+
+      .bottom {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 70px;
+
+        .left {
+          margin-right: 70px;
+          img {
+            width: 250px;
+          }
+        }
+        .right {
+          .HAS-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            .HAS-option {
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              border-radius: 10px;
+              border: 1px solid black;
+              width: 400px;
+              padding: 0 10px;
+              .ml {
+                width: 60px;
+                height: 50px;
+                margin-right: -120px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

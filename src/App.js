@@ -19,6 +19,7 @@ import { Leaderboard } from "./pages/leaderboard/Leaderboard";
 import { JoinQuizCard } from "./pages/joinQuizCard/JoinQuizCard";
 import { OneV } from "./pages/oneVone/OneV";
 import { PrivacyPolicy } from "./pages/privacyPolicy/PrivacyPolicy";
+import { HelpAndSupport } from "./pages/helpAndSupport/HelpAndSupport";
 function App() {
   return (
     <HelmetProvider>
@@ -127,6 +128,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <OneV />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/helpAndSupport"
+              element={
+                <PrivateRoute>
+                  <HelpAndSupport />
                 </PrivateRoute>
               }
             />
