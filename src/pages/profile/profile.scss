@@ -37,7 +37,7 @@
     .right-part2 {
       flex-basis: 4;
       width: 60%;
-      padding: 3rem;
+      padding: 1.5rem 3rem;
 
       .img-wrappper {
         margin-left: 40%;
@@ -52,10 +52,10 @@
       }
 
       .info-tab {
-        padding: 2rem;
+        padding: 1.5rem;
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 10px;
         .content {
           h4 {
             margin: 0;

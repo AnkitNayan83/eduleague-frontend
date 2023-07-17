@@ -1,0 +1,98 @@
+.analysis-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../../public/images/bg.png");
+    
+    .analysis-wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    .analysis-container2 {
+          background-color: aliceblue;
+          border-radius: 10px;
+          height: 550px;
+          width: 1200px;
+          // padding: 3rem;
+        
+          display: flex;
+          gap: 2rem;
+        padding: 1.2rem 1rem;
+            .left-part{
+                padding: 2rem;
+                width: 20%;
+                margin-top: 2rem;
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                .box{
+                    display: flex;
+                    align-items: center;
+                    // justify-content: center;
+                    flex-direction: column;
+
+                    h5{
+                       font-size: x-large;
+                    }
+                }
+                .active{
+                    background-color: black;
+                    color: white;
+                    border-radius: 1rem;
+                }
+            }
+            .right-part{
+                padding-top: 1rem;
+                width: 60%;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                overflow:auto ;
+                overflow-x: hidden;
+                .w-box{
+                    background-color: white;
+                    border-radius: 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 1rem 2rem;
+                    justify-content: center;
+                    gap: 1rem;
+                    .center{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .first{
+                        justify-content: space-between;
+                        p{
+                            background-color: rgb(51, 51, 51);
+                            color: grey;
+                            padding: 5px 10px;
+                            border-radius: 5px;
+                        }
+                    }
+                    .second{
+                        justify-content: center;
+                        gap: 6rem;
+                    }
+                    .third{
+                        color: white;
+                        display: flex;
+                        padding: 0.5rem;
+                    }
+                    .green{
+                        background-color: green;
+                    }
+                }
+            }
+        }
+}
