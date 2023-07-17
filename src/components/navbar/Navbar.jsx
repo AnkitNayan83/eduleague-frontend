@@ -117,8 +117,12 @@ export const Navbar = () => {
           <Link to={"/wallet"}>
             <div className="menu-option">Wallet</div>
           </Link>
-          {/* <div className="menu-option">Analyse</div> */}
-          {/* <div className="menu-option">Leaderboard</div> */}
+          <Link to={"/analysis"}>
+            <div className="menu-option">Analyse</div>
+          </Link>
+          <Link to={"/rewards"}>
+            <div className="menu-option">Rewards</div>
+          </Link>
           <Link to={"/about"}>
             <div className="menu-option">About Us</div>
           </Link>

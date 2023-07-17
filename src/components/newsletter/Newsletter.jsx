@@ -1,7 +1,15 @@
 import React from "react";
 import "./newsletter.scss";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const Newsletter = () => {
+  const navigate = useNavigate();
+  const handelClick = (e) => {
+    e.preventDefault();
+    navigate("/");
+    toast.success("Thanks for subscribing");
+  };
   return (
     <div className="newsletter">
       <div className="container">
@@ -11,7 +19,7 @@ export const Newsletter = () => {
           <p>Subscribe now</p>
           <form>
             <input type="text" placeholder="Enter your email" />
-            <button>Subscribe</button>
+            <button onClick={handelClick}>Subscribe</button>
           </form>
         </div>
       </div>

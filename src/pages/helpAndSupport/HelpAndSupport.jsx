@@ -4,7 +4,7 @@ import { Navbar2 } from "../../components/navbar2/Navbar2";
 
 export const HelpAndSupport = () => {
   const handleMail = () => {
-    const mailtoUrl = "info@eduleague.in";
+    const mailtoUrl = "mailto:info@eduleague.in";
     window.open(mailtoUrl);
   };
   const handleChat = () => {

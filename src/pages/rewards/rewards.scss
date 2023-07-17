@@ -1,0 +1,52 @@
+.rewards {
+  background-image: url("../../../public/images/bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow-x: hidden;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    .container {
+      width: 95%;
+      min-height: 90vh;
+      background-color: white;
+      border-radius: 20px;
+      display: flex;
+      .left {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 7% 0;
+        .rew-option {
+          background: #fff;
+          margin-bottom: 30px;
+          color: black;
+          border-top-right-radius: 20px;
+          border-bottom-right-radius: 20px;
+          width: 60%;
+          text-align: center;
+          padding: 20px 0;
+          cursor: pointer;
+          &.active {
+            background: #313131;
+            color: white;
+          }
+        }
+      }
+      .right {
+        flex: 3;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        padding: 20px;
+      }
+    }
+  }
+}
