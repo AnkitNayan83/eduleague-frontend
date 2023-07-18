@@ -79,3 +79,32 @@
   flex-direction: column;
   align-items: center;
 }
+.wrap-kyc{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+
+  h6{
+    font-size: 2rem;
+    color:rgb(252, 198, 89);
+  }
+
+}
+.kyc-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28rem;
+
+  img{
+    width: 100%;
+  }
+}
+
+.grn{
+  h6{
+  color: rgb(53, 189, 53);
+  }
+}

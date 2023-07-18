@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { hideLoading, showLoading } from "../../redux/slice/alertSlice";
 import { HashLoader } from "react-spinners";
 
+
 export const Kyc = () => {
   const [step, setStep] = useState(1);
   const [personalDetails, setPersonalDetails] = useState({
@@ -58,7 +59,9 @@ export const Kyc = () => {
 
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.alerts.loading);
-
+  const user = useSelector((state) => state.auth.user);
+  const isKycSubmitted = user.isKycSubmitted;
+ 
   const handleSubmitButton = async () => {
     // Call backend API to update KYC status
     try {
@@ -100,11 +103,40 @@ export const Kyc = () => {
       confirmAccountNumber: e.target.value,
     });
   };
-
+  const status = user?.kyc?.status;
+  if(status === "Verified"){
+    return(
+      <div className="kyc-step">
+      <h2 className="kyc-step-title">KYC Status</h2>
+      <div className="wrap-kyc">
+      <div className="kyc-img">
+        <img src="/images/kycA.png" alt="" />
+      </div>
+      {console.log(user)}
+      <div className="kyc-status grn"><h6>KYC Status: Verified!!</h6></div>
+      </div>
+    </div>
+    )
+  }
+  if (isKycSubmitted) {
+    return (
+      <div className="kyc-step">
+      <h2 className="kyc-step-title">KYC Status</h2>
+      <div className="wrap-kyc">
+      <div className="kyc-img">
+        <img src="/images/kycP.png" alt="" />
+      </div>
+      {console.log(user)}
+      <div className="kyc-status"><h6>KYC Status: Pending!!</h6></div>
+      </div>
+    </div>
+    );
+  }
   return (
     <div>
       {step === 1 && (
         <div className="kyc-step">
+          {console.log(user)}
           <h2 className="kyc-step-title">Enter your Information</h2>
           <div>
             <div className="kyc-field">
@@ -263,14 +295,15 @@ export const Kyc = () => {
           </div>
         ))}
       {step === 4 && (
-        <div className="kyc-step">
-          <h2 className="kyc-step-title">KYC Status</h2>
-          {kycStatus === "Pending" ? (
-            <div className="kyc-status">KYC Status: Pending</div>
-          ) : (
-            <div className="kyc-status">KYC Status: Approved</div>
-          )}
-        </div>
+         <div className="kyc-step">
+         <h2 className="kyc-step-title">KYC Status</h2>
+         <div className="wrap-kyc">
+         <div className="kyc-img">
+           <img src="/images/kycP.png" alt="" />
+         </div>
+         <div className="kyc-status"><h6>KYC Status: Pending!!</h6></div>
+         </div>
+       </div>
       )}
     </div>
   );
