@@ -41,7 +41,7 @@ export const Rewards = () => {
                   else return null;
                 })
               : rewardsData.map((item, i) => {
-                  if (item.type != "reward")
+                  if (item.type !== "reward")
                     return (
                       <RewardCard
                         img={item.img}

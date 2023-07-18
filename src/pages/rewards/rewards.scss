@@ -10,11 +10,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-
+    height: calc(100vh - 80px);
     .container {
       width: 95%;
-      min-height: 90vh;
+      height: 90%;
       background-color: white;
       border-radius: 20px;
       display: flex;
@@ -43,9 +42,10 @@
       .right {
         flex: 3;
         display: flex;
-        gap: 20px;
+        gap: 60px;
         flex-wrap: wrap;
-        padding: 20px;
+        padding: 20px 0;
+        overflow: auto;
       }
     }
   }
