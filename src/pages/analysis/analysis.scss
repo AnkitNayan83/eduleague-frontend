@@ -15,7 +15,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
-
+   overflow-x:hidden;
     .analysis-spinner {
       display: flex;
       flex-direction: column;
@@ -31,10 +31,16 @@
     height: 550px;
     width: 1200px;
     // padding: 3rem;
-
+   
     display: flex;
     gap: 2rem;
     padding: 1.2rem 1rem;
+    @media screen and (max-width: 694px) {
+      flex-direction: column;
+      align-items: center;
+      // gap: 1rem;
+    } 
+
     .left-part {
       padding: 2rem;
       width: 20%;
@@ -42,6 +48,12 @@
       display: flex;
       flex-direction: column;
       gap: 2rem;
+      @media screen and (max-width: 694px) {
+       padding: 0;
+       margin-top: 0;
+       width: 40%;
+       gap: 1rem;
+      } 
       .box {
         display: flex;
         align-items: center;
@@ -67,6 +79,9 @@
       gap: 1rem;
       overflow: auto;
       overflow-x: hidden;
+      @media screen and (max-width: 694px) {
+        width: max-content;
+       } 
       .w-box {
         background-color: white;
         border-radius: 1rem;
@@ -83,6 +98,10 @@
 
         .first {
           justify-content: space-between;
+          @media screen and (max-width: 694px) {
+            justify-content: center;
+            gap: 20px;
+           } 
           p {
             background-color: rgb(51, 51, 51);
             color: grey;
@@ -93,11 +112,41 @@
         .second {
           justify-content: center;
           gap: 6rem;
+          .you{
+            width: 20%;
+            @media screen and (max-width: 694px) {
+              width: 10%;
+             } 
+            img{
+              width: 100%;
+              
+            }
+          }
+          @media screen and (max-width: 400px) {
+            gap: 3rem;
+           } 
+           .opp{
+            width: 20%;
+            @media screen and (max-width: 694px) {
+              width: 10%;
+             } 
+            img{
+              width: 100%;
+              
+            }
+          }
+
+          h5{
+            text-align: center;
+          }
         }
         .third {
           color: white;
           display: flex;
           padding: 0.5rem;
+          @media screen and (max-width: 694px) {
+            padding: 0;
+           } 
         }
         .green {
           background-color: green;

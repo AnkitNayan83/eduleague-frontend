@@ -9,12 +9,12 @@ export const WonAnalysis = ({ name, opponenet, price, date }) => {
       </div>
       <div className="second center">
         <div className="you">
-          <img src="./images/prof.png" alt="" />
+          <img src="./images/happy.png" alt="" />
           <h5>You</h5>
         </div>
         <div className="vs">Vs</div>
         <div className="opp">
-          <img src="./images/prof.png" alt="" />
+          <img src="./images/sad.png" alt="" />
           <h5>{opponenet}</h5>
         </div>
       </div>

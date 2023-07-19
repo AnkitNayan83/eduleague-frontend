@@ -70,11 +70,13 @@ export const OneV = () => {
                         <Score
                           marks={response?.sortedParticipants[0]?.totalMarks}
                           mesg={"Your Score"}
+                          url={"happy"}
                         />
                         <div className="div">Vs</div>
                         <Score
                           marks={response?.sortedParticipants[1]?.totalMarks}
                           mesg={"Opponent Score"}
+                          url={"sad"}
                         />
                       </>
                     ) : (
@@ -82,11 +84,13 @@ export const OneV = () => {
                         <Score
                           marks={response?.sortedParticipants[1]?.totalMarks}
                           mesg={"Your Score"}
+                          url={"sad"}
                         />
                         <div className="div">Vs</div>
                         <Score
                           marks={response?.sortedParticipants[0]?.totalMarks}
                           mesg={"Opponent Score"}
+                          url={"happy"}
                         />
                       </>
                     )}
