@@ -68,15 +68,19 @@ export const Navbar2 = ({ pageName }) => {
           <div className="menu-option" onClick={() => navigate("/wallet")}>
             Wallet
           </div>
-          <div className="menu-option">Analyse</div>
-          <div className="menu-option">Leaderboard</div>
+          <Link to={"/analysis"}>
+            <div className="menu-option">Analyse</div>
+          </Link>
+          {/* <div className="menu-option">Leaderboard</div> */}
           <div className="menu-option" onClick={() => navigate("/about")}>
             About Us
           </div>
-          <a href="/#fqa">
+          <Link to={"/#fqa"}>
             <div className="menu-option">FAQ</div>
-          </a>
-          <div className="menu-option">Help and Support</div>
+          </Link>
+          <Link to={"/helpAndSupport"}>
+            <div className="menu-option">Help and Support</div>
+          </Link>
           <div className="menu-option" onClick={handelLogOut}>
             Log out
           </div>

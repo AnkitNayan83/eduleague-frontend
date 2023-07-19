@@ -34,32 +34,4 @@ export const rewardsData = [
     desc: "Buy 7 chakra of shivji t shirt at 500 coins you earned",
     price: 500,
   },
-  {
-    type: "reward",
-    img: "./images/t1.png",
-    name: "7 chakra T- shirt",
-    desc: "Buy 7 chakra of shivji t shirt at 500 coins you earned",
-    price: 500,
-  },
-  {
-    type: "reward",
-    img: "./images/t1.png",
-    name: "7 chakra T- shirt",
-    desc: "Buy 7 chakra of shivji t shirt at 500 coins you earned",
-    price: 500,
-  },
-  {
-    type: "reward",
-    img: "./images/t1.png",
-    name: "7 chakra T- shirt",
-    desc: "Buy 7 chakra of shivji t shirt at 500 coins you earned",
-    price: 500,
-  },
-  {
-    type: "reward",
-    img: "./images/t1.png",
-    name: "7 chakra T- shirt",
-    desc: "Buy 7 chakra of shivji t shirt at 500 coins you earned",
-    price: 500,
-  },
 ];

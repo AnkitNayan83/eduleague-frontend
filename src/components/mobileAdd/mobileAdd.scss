@@ -6,7 +6,6 @@
   justify-content: center;
   align-items: center;
   .container {
-    // width: 1024px;
     width: 80%;
     height: 90%;
     display: flex;
@@ -14,24 +13,28 @@
     justify-content: center;
     @include mobile {
       flex-direction: column-reverse;
-      margin-top: 50%;
+      justify-content: space-evenly;
     }
 
     .left {
-      // background-color: red;
       flex: 1;
       @include mobile {
-        margin-bottom: 30%;
+        flex: 0;
       }
       .img-wrapper {
         @include mobile {
           height: 200px;
           width: 200px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
         img {
           width: 80%;
           @include mobile {
-            height: 400px;
+            width: 300px;
+          }
+          @include tablet {
             width: 400px;
           }
         }
@@ -45,7 +48,8 @@
       gap: 10px;
 
       @include mobile {
-        margin-top: 20%;
+        // margin-top: 20%;
+        flex: 0;
       }
 
       h4 {

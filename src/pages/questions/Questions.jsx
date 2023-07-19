@@ -48,6 +48,7 @@ export const Questions = () => {
     if (seconds === 0) {
       setSkipAnswer((prev) => prev + 10 - currentQuestionIndex);
     }
+    // eslint-disable-next-line
   }, [seconds]);
 
   return (

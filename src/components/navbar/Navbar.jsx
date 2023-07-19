@@ -132,7 +132,9 @@ export const Navbar = () => {
           <Link to="/privacyPolicy">
             <div className="menu-option">Privacy Policy</div>
           </Link>
-          <div className="menu-option">Help and Support</div>
+          <Link to="/helpAndSupport">
+            <div className="menu-option">Help and Support</div>
+          </Link>
           <div className="menu-option" onClick={handelLogOut}>
             Log out
           </div>

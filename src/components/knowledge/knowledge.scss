@@ -1,3 +1,4 @@
+@import "../../App.scss";
 .Knowledge {
   background-image: url("../../../public/images/know.png");
   background-position: center;
@@ -8,6 +9,9 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 10%;
+  @include mobile {
+    margin-bottom: 30%;
+  }
   p {
     width: 80%;
     word-spacing: 2px;
@@ -16,6 +20,10 @@
     color: white;
     span {
       color: rgba(252, 198, 89, 1);
+    }
+
+    @include mobile {
+      font-size: 28px;
     }
   }
 }

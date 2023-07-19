@@ -33,6 +33,7 @@ export const Analysis = () => {
       }
     };
     getAnalysis();
+    // eslint-disable-next-line
   }, []);
 
   const handleWonPageClick = () => {

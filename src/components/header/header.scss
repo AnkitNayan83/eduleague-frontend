@@ -25,7 +25,7 @@
         font-weight: 700;
         font-size: 2.8rem;
         @include mobile {
-          font-size: 1.5rem;
+          font-size: 1.2rem;
         }
 
         span {
@@ -41,6 +41,7 @@
         font-weight: 500;
         @include mobile {
           text-align: center;
+          width: 80%;
         }
       }
       button {
@@ -61,8 +62,8 @@
         width: 60%;
         margin-left: 5%;
         @include mobile {
-          width: 60%;
-          height: 80%;
+          width: 50%;
+          height: 100%;
         }
       }
     }
@@ -80,6 +81,11 @@
         width: max-content;
       }
 
+      @include tablet {
+        flex-direction: column;
+        align-items: center;
+      }
+
       .header-bottom-card {
         background-color: white;
         flex: 1;
@@ -94,7 +100,11 @@
         height: 300px;
 
         @include tablet {
-          width: 30%;
+          width: 70%;
+        }
+
+        @include mobile {
+          width: 36%;
         }
 
         margin-bottom: 40px;
@@ -111,6 +121,9 @@
           h3 {
             font-weight: 600;
             font-size: 32px;
+            @include mobile {
+              font-size: 20px;
+            }
           }
           p {
             word-spacing: 2px;
@@ -139,8 +152,13 @@
         height: max-content;
 
         @include tablet {
-          width: 25%;
+          width: 70%;
           font-size: 14px;
+        }
+
+        @include mobile {
+          width: 36%;
+          margin-bottom: 20px;
         }
 
         h2 {

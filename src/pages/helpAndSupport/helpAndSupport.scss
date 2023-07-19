@@ -1,3 +1,4 @@
+@import "../../App.scss";
 .HAS {
   height: 100vh;
   background-image: url("../../../public/images/bg.png");
@@ -20,6 +21,10 @@
       align-items: center;
       gap: 10%;
 
+      @include mobile {
+        height: 90%;
+      }
+
       .top {
         text-align: center;
         padding: 8% 0 3% 0;
@@ -31,8 +36,15 @@
         justify-content: center;
         margin-bottom: 70px;
 
+        @include mobile {
+          flex-direction: column;
+        }
+
         .left {
           margin-right: 70px;
+          @include mobile {
+            margin-right: 0;
+          }
           img {
             width: 250px;
           }
@@ -52,10 +64,22 @@
               border: 1px solid black;
               width: 400px;
               padding: 0 10px;
+              @include mobile {
+                width: 250px;
+              }
+              @include tablet {
+                width: 300px;
+              }
               .ml {
                 width: 60px;
                 height: 50px;
                 margin-right: -120px;
+                @include mobile {
+                  margin-right: 0;
+                }
+                @include tablet {
+                  margin-right: 0;
+                }
               }
             }
           }
