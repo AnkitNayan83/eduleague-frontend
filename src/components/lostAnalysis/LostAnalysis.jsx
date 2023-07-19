@@ -18,7 +18,7 @@ export const LostAnalysis = ({ name, price, opponenet, date }) => {
           <h5>{opponenet}</h5>
         </div>
       </div>
-      <div className="third center red">Lost ₹{price}</div>
+      <div className="third center redi">Lost ₹{price}</div>
     </div>
   );
 };
