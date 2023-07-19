@@ -8,11 +8,10 @@ import { Kyc } from "../../components/kyc/Kyc";
 
 export const Profile = () => {
   const [profile, setProfile] = useState(true);
-
   return (
     <div className="contain">
        <Navbar2 pageName={"profile"} />
-    <div className="wallet-wrapper">
+    <div className="wallet-wrapper2">
       <Helmet>
         <title>{"Eduleague | Profile"}</title>
         <meta
@@ -52,7 +51,7 @@ export const Profile = () => {
           <div className="right-part2">
             {profile ?
               <EditProfile/>
-            :<Kyc/>}
+            :<Kyc />}
           </div>
         </>
       </div>
