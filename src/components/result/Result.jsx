@@ -82,6 +82,7 @@ export const Result = ({
       }
     };
     saveParticipantQ();
+    // console.log('1')
     // eslint-disable-next-line
   }, []);
 
