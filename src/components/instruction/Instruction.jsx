@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./instruction.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { axiosRequest } from "../../axiosInstance";
@@ -12,6 +12,8 @@ export const Instruction = ({
   course,
   topic,
   entryCoins,
+  type,
+  capacity,
   hideInstruction,
 }) => {
   const dispatch = useDispatch();
@@ -24,7 +26,7 @@ export const Instruction = ({
       const token = localStorage.getItem("token");
       const { data } = await axiosRequest.post(
         "/quiz/create",
-        { course, subject, topic, entryCoins, type: "single" },
+        { course, subject, topic, entryCoins, type, capacity },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -32,19 +34,33 @@ export const Instruction = ({
         }
       );
       dispatch(hideLoading());
-      navigate(`/quiz/${data?.quiz._id}`, {
-        state: {
-          questions: data?.questions,
-          participant: data?.quiz.participants[0]._id,
-          type: data?.quiz.type,
-        },
-      });
-
-      toast.success("quiz created Successfully");
+      setTimeout(() => endQuiz(data?.quiz._id), 24 * 60 * 60 * 1000);
+      if (type === "single") {
+        navigate(`/quiz/${data?.quiz._id}`, {
+          state: {
+            questions: data?.questions,
+            participant: data?.quiz.participants[0]._id,
+            type: data?.quiz.type,
+          },
+        });
+        toast.success("Quiz created Successfully");
+      } else {
+        navigate("/");
+        toast.success("Community quiz created Successfully");
+      }
     } catch (error) {
       console.log(error);
     }
   };
+
+  const endQuiz = async (qz) => {
+    try {
+      const { data } = await axiosRequest.put(`/quiz/${qz}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className={"instruction" + (loading ? " tp" : "")}>
       {loading ? (

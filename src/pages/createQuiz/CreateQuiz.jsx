@@ -5,6 +5,7 @@ import { subjectsData } from "./option-data";
 import { Add, Remove } from "@mui/icons-material";
 import { Instruction } from "../../components/instruction/Instruction";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 export const CreateQuiz = () => {
   const [course, setCourse] = useState("");
@@ -12,6 +13,9 @@ export const CreateQuiz = () => {
   const [topic, setTopic] = useState("");
   const [entryCoins, setEntryCoins] = useState(10);
   const [showInstruction, setShowInstruction] = useState(false);
+  const [quizType, setQuizType] = useState("single");
+  const [capacity, setCapacity] = useState(2);
+  const user = useSelector((state) => state.auth.user);
 
   const handelChangeCourse = (e) => {
     setCourse(e.target.value);
@@ -43,6 +47,15 @@ export const CreateQuiz = () => {
     }
   };
 
+  const handelType = (e) => {
+    if (e.target.value === "single") {
+      setQuizType(e.target.value);
+      setCapacity(2);
+    } else {
+      setQuizType(e.target.value);
+    }
+  };
+
   return (
     <div className="createQuiz">
       <Navbar2 pageName={"createQuiz"} />
@@ -58,6 +71,28 @@ export const CreateQuiz = () => {
             </div>
             <div className="right">
               <div className="options">
+                {user?.isAdmin && (
+                  <div className="quiz__type">
+                    <div className="admin_type">
+                      <label htmlFor="type">Type:</label>
+                      <select name="type" id="type" onChange={handelType}>
+                        <option value="single">Single</option>
+                        <option value="community">Community</option>
+                      </select>
+                    </div>
+                    <div className="admin_input">
+                      <label htmlFor="">Capacity:</label>
+                      <input
+                        id="capacity"
+                        type="number"
+                        placeholder="enter the number of players"
+                        value={capacity}
+                        onChange={(e) => setCapacity(e.target.value)}
+                        disabled={quizType === "single"}
+                      />
+                    </div>
+                  </div>
+                )}
                 <select name="course" id="course" onChange={handelChangeCourse}>
                   <option value="">Select Course</option>
                   <option value="12th (CBSE)">Class 12th</option>
@@ -137,6 +172,8 @@ export const CreateQuiz = () => {
             subject={subject}
             topic={topic}
             entryCoins={entryCoins}
+            type={quizType}
+            capacity={capacity}
             hideInstruction={setShowInstruction}
           />
         )}
