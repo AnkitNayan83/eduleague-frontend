@@ -146,7 +146,7 @@ export const JoinQuiz = () => {
               {selectedQuizType === "single" && (
                 <>
                   <h4 className="join-h4">Single Quiz</h4>
-                  {quizes?.singleQuizes.length === 0 && (
+                  {(quizes?.singleQuizes?.length || 0) === 0 && (
                     <h2 className="not__found">Quizzes not found</h2>
                   )}
                   {quizes?.singleQuizes &&
@@ -158,7 +158,7 @@ export const JoinQuiz = () => {
               {selectedQuizType === "community" && (
                 <>
                   <h4 className="join-h4">Community Quiz</h4>
-                  {quizes?.communityQuizes.length === 0 && (
+                  {(quizes?.communityQuizes?.length || 0) === 0 && (
                     <h2 className="not__found">Quizzes not found</h2>
                   )}
                   {quizes?.communityQuizes &&
