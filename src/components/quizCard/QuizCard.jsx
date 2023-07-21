@@ -37,7 +37,7 @@ export const QuizCard = (props) => {
             <h4>{isCompleted ? "Closed" : "Ongoing"}</h4>
           </div>
 
-          <h5>Created By {creator?.fName || "user"}</h5>
+          <h5>Created By {creator?.fName + " " + (creator?.lName || "")}</h5>
           <h5 className="topic t2">Topic - {topic}</h5>
           <div className="lower-part">
             <h4 className="h3-bottom">Win upto</h4>
