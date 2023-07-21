@@ -36,7 +36,6 @@
       margin-block: 1rem;
       @include mobile {
         font-size: 1rem;
-
       }
       p {
         font-size: 1.2rem;
@@ -56,7 +55,7 @@
       @include mobile {
         flex-direction: row;
         gap: 2rem;
-        // font-size: 1rem; 
+        // font-size: 1rem;
       }
 
       .btn {
@@ -88,12 +87,45 @@
     margin: 2rem;
     flex-basis: 2;
     width: 70%;
+
+    .quiz__filter {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      select {
+        padding: 10px;
+        margin-right: 10px;
+        @include mobile {
+          padding: 10px 0;
+          margin-bottom: 10px;
+        }
+      }
+      .cf {
+        text-decoration: underline;
+        color: white;
+        cursor: pointer;
+        margin-right: 30px;
+        @include mobile {
+          margin-right: 5px;
+        }
+      }
+      @include mobile {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+
     @include mobile {
       margin: 1rem;
-  }
+    }
     .join-h4 {
       color: white;
       font-size: 1.5rem;
+    }
+    .not__found {
+      color: white;
+      text-align: center;
+      margin-top: 10%;
     }
     .spin {
       display: flex;
