@@ -34,7 +34,7 @@ export const Instruction = ({
         }
       );
       dispatch(hideLoading());
-      setTimeout(() => endQuiz(data?.quiz._id), 24 * 60 * 60 * 1000);
+      setTimeout(() => endQuiz(data?.quiz._id), 3 * 60 * 1000);
       if (type === "single") {
         navigate(`/quiz/${data?.quiz._id}`, {
           state: {
