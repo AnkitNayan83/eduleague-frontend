@@ -32,7 +32,7 @@ export const Questions = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   };
 
-  const [seconds, setSeconds] = useState(300);
+  const [seconds, setSeconds] = useState(location.state.duration);
 
   useEffect(() => {
     const interval = setInterval(() => {

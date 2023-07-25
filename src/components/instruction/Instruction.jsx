@@ -42,6 +42,7 @@ export const Instruction = ({
             questions: data?.questions,
             participant: data?.quiz.participants[0]._id,
             type: data?.quiz.type,
+            duration: data?.duration,
           },
         });
         toast.success("Quiz created Successfully");

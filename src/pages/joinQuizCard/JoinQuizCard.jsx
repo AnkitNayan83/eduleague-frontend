@@ -54,6 +54,7 @@ export const JoinQuizCard = () => {
             questions: quiz?.questions,
             participant: res.data?.savedParticipant._id,
             type: quiz?.type,
+            duration: quiz?.duration,
           },
         });
       } else {
