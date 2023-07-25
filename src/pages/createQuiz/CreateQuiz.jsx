@@ -15,6 +15,7 @@ export const CreateQuiz = () => {
   const [showInstruction, setShowInstruction] = useState(false);
   const [quizType, setQuizType] = useState("single");
   const [capacity, setCapacity] = useState(2);
+  const [questionnaireBy, setquestionnaireBy] = useState("Eduleague");
   const user = useSelector((state) => state.auth.user);
 
   const handelChangeCourse = (e) => {
@@ -68,6 +69,18 @@ export const CreateQuiz = () => {
                 Allow users to create quizzes with multiple choice questions and
                 choose topics they want
               </p>
+              <div className="qbt">
+                <label htmlFor="questionnaireBy">Questionnaire By</label>
+                <select
+                  name="questionnaireBy"
+                  id="questionnaireBy"
+                  onChange={(e) => setquestionnaireBy(e.target.value)}
+                >
+                  <option selected value="Eduleague">
+                    Eduleague
+                  </option>
+                </select>
+              </div>
             </div>
             <div className="right">
               <div className="options">
@@ -174,6 +187,7 @@ export const CreateQuiz = () => {
             entryCoins={entryCoins}
             type={quizType}
             capacity={capacity}
+            questionnaireBy={questionnaireBy}
             hideInstruction={setShowInstruction}
           />
         )}

@@ -15,6 +15,7 @@ export const Instruction = ({
   type,
   capacity,
   hideInstruction,
+  questionnaireBy,
 }) => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.alerts.loading);
@@ -26,7 +27,7 @@ export const Instruction = ({
       const token = localStorage.getItem("token");
       const { data } = await axiosRequest.post(
         "/quiz/create",
-        { course, subject, topic, entryCoins, type, capacity },
+        { course, subject, topic, entryCoins, type, capacity, questionnaireBy },
         {
           headers: {
             Authorization: `Bearer ${token}`,
