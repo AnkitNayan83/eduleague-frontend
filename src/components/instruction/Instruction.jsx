@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./instruction.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { axiosRequest } from "../../axiosInstance";
@@ -35,7 +35,6 @@ export const Instruction = ({
         }
       );
       dispatch(hideLoading());
-      setTimeout(() => endQuiz(data?.quiz._id), 24 * 60 * 60 * 1000);
       if (type === "single") {
         navigate(`/quiz/${data?.quiz._id}`, {
           state: {
@@ -50,14 +49,6 @@ export const Instruction = ({
         navigate("/");
         toast.success("Community quiz created Successfully");
       }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const endQuiz = async (qz) => {
-    try {
-      const { data } = await axiosRequest.put(`/quiz/${qz}`);
     } catch (error) {
       console.log(error);
     }

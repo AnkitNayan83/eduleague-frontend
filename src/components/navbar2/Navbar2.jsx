@@ -43,7 +43,7 @@ export const Navbar2 = ({ pageName }) => {
         <div className="top">
           <Close className="cx" onClick={() => setShowMenu(false)} />
         </div>
-        <div className="nav-user-info">
+        <div className="nav-user-info" onClick={() => navigate("/editProfile")}>
           <div className="left">
             <img src={"./images/prof.svg"} alt="" />
           </div>
@@ -64,7 +64,9 @@ export const Navbar2 = ({ pageName }) => {
           </div>
         </div>
         <div className="nav-menu-options">
-          <div className="menu-option">Profile and KYC</div>
+          <div className="menu-option" onClick={() => navigate("/editProfile")}>
+            Profile and KYC
+          </div>
           <div className="menu-option" onClick={() => navigate("/wallet")}>
             Wallet
           </div>
