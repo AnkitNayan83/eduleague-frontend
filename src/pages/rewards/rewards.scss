@@ -17,6 +17,19 @@
       background-color: white;
       border-radius: 20px;
       display: flex;
+
+      .rew__load {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+
+        p {
+          margin-top: 10px;
+        }
+      }
+
       .left {
         flex: 2;
         display: flex;
