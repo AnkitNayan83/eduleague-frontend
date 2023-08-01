@@ -85,11 +85,13 @@ export const Kyc = () => {
         },
       });
       dispatch(hideLoading());
-      setStep(step + 1);
+      
       if (data.success) {
         toast.success(data.message);
+        setStep(step + 1);
       } else {
-        toast.error("All fields are required");
+        toast.error(data.message.message);
+        setStep(step -1);
       }
     } catch (error) {
       dispatch(hideLoading());
@@ -112,7 +114,7 @@ export const Kyc = () => {
       <div className="kyc-img">
         <img src="/images/kycA.png" alt="" />
       </div>
-      {console.log(user)}
+      {/* {console.log(user)} */}
       <div className="kyc-status grn"><h6>KYC Status: Verified!!</h6></div>
       </div>
     </div>
@@ -126,7 +128,7 @@ export const Kyc = () => {
       <div className="kyc-img">
         <img src="/images/kycP.png" alt="" />
       </div>
-      {console.log(user)}
+      {/* {console.log(user)} */}
       <div className="kyc-status"><h6>KYC Status: Pending!!</h6></div>
       </div>
     </div>
@@ -136,7 +138,7 @@ export const Kyc = () => {
     <div>
       {step === 1 && (
         <div className="kyc-step">
-          {console.log(user)}
+          {/* {console.log(user)} */}
           <h2 className="kyc-step-title">Enter your Information</h2>
           <div>
             <div className="kyc-field">
