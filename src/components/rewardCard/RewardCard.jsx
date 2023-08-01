@@ -52,6 +52,7 @@ export const RewardCard = ({ img, name, desc, price, rewardId }) => {
         );
         dispatch(setUser(res.data.user));
         dispatch(hideLoading());
+        toast.success("Item bought successfully");
       } else {
         dispatch(hideLoading());
         console.log("nope");
