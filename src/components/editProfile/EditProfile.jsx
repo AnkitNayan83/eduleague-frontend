@@ -15,21 +15,25 @@ export const EditProfile = () => {
   const [phoneNumber, setPhoneNumber] = useState(user?.phoneNo || "");
   const [location, setlocation] = useState(user?.location || "");
 
-  const handleSaveChanges = async() => {
+  const handleSaveChanges = async () => {
     dispatch(showLoading());
     const updatedUser = {
       ...user,
       fName: fName,
       lName: lName,
       // phoneNo: phoneNumber,
-      location:location,
+      location: location,
     };
     dispatch(setUser(updatedUser));
-    await axiosRequest.put("/user/update-user", {fName , lName , location}, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    });
+    await axiosRequest.put(
+      "/user/update-user",
+      { fName, lName, location },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
     setTimeout(() => {
       dispatch(hideLoading());
     }, 1000);
@@ -78,7 +82,7 @@ export const EditProfile = () => {
             <input
               type="text"
               value={location}
-              placeholder="Enter your Last Name"
+              placeholder="Enter your address"
               onChange={(e) => setlocation(e.target.value)}
             />
           </div>

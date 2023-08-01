@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { hideLoading, showLoading } from "../../redux/slice/alertSlice";
 import { HashLoader } from "react-spinners";
-
+import { setUser } from "../../redux/slice/authSlice";
 
 export const Kyc = () => {
   const [step, setStep] = useState(1);
@@ -61,7 +61,7 @@ export const Kyc = () => {
   const loading = useSelector((state) => state.alerts.loading);
   const user = useSelector((state) => state.auth.user);
   const isKycSubmitted = user.isKycSubmitted;
- 
+
   const handleSubmitButton = async () => {
     // Call backend API to update KYC status
     try {
@@ -84,14 +84,25 @@ export const Kyc = () => {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      dispatch(hideLoading());
-      
+
       if (data.success) {
+        const res = await axiosRequest.post(
+          "/user/get-user-auth",
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+        dispatch(setUser(res.data.user));
         toast.success(data.message);
+        dispatch(hideLoading());
         setStep(step + 1);
       } else {
+        dispatch(hideLoading());
         toast.error(data.message.message);
-        setStep(step -1);
+        setStep(step - 1);
       }
     } catch (error) {
       dispatch(hideLoading());
@@ -106,32 +117,36 @@ export const Kyc = () => {
     });
   };
   const status = user?.kyc?.status;
-  if(status === "Verified"){
-    return(
+  if (status === "Verified") {
+    return (
       <div className="kyc-step">
-      <h2 className="kyc-step-title">KYC Status</h2>
-      <div className="wrap-kyc">
-      <div className="kyc-img">
-        <img src="/images/kycA.png" alt="" />
+        <h2 className="kyc-step-title">KYC Status</h2>
+        <div className="wrap-kyc">
+          <div className="kyc-img">
+            <img src="/images/kycA.png" alt="" />
+          </div>
+          {/* {console.log(user)} */}
+          <div className="kyc-status grn">
+            <h6>KYC Status: Verified!!</h6>
+          </div>
+        </div>
       </div>
-      {/* {console.log(user)} */}
-      <div className="kyc-status grn"><h6>KYC Status: Verified!!</h6></div>
-      </div>
-    </div>
-    )
+    );
   }
   if (isKycSubmitted) {
     return (
       <div className="kyc-step">
-      <h2 className="kyc-step-title">KYC Status</h2>
-      <div className="wrap-kyc">
-      <div className="kyc-img">
-        <img src="/images/kycP.png" alt="" />
+        <h2 className="kyc-step-title">KYC Status</h2>
+        <div className="wrap-kyc">
+          <div className="kyc-img">
+            <img src="/images/kycP.png" alt="" />
+          </div>
+          {/* {console.log(user)} */}
+          <div className="kyc-status">
+            <h6>KYC Status: Pending!!</h6>
+          </div>
+        </div>
       </div>
-      {/* {console.log(user)} */}
-      <div className="kyc-status"><h6>KYC Status: Pending!!</h6></div>
-      </div>
-    </div>
     );
   }
   return (
@@ -297,15 +312,17 @@ export const Kyc = () => {
           </div>
         ))}
       {step === 4 && (
-         <div className="kyc-step">
-         <h2 className="kyc-step-title">KYC Status</h2>
-         <div className="wrap-kyc">
-         <div className="kyc-img">
-           <img src="/images/kycP.png" alt="" />
-         </div>
-         <div className="kyc-status"><h6>KYC Status: Pending!!</h6></div>
-         </div>
-       </div>
+        <div className="kyc-step">
+          <h2 className="kyc-step-title">KYC Status</h2>
+          <div className="wrap-kyc">
+            <div className="kyc-img">
+              <img src="/images/kycP.png" alt="" />
+            </div>
+            <div className="kyc-status">
+              <h6>KYC Status: Pending!!</h6>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
