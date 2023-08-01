@@ -5,6 +5,7 @@ import { CheckCircleOutline } from "@mui/icons-material";
 import { toast } from "react-toastify";
 import { hideLoading, showLoading } from "../../redux/slice/alertSlice";
 import { axiosRequest } from "../../axiosInstance";
+import { setUser } from "../../redux/slice/authSlice";
 
 export const RewardCard = ({ img, name, desc, price, rewardId }) => {
   const user = useSelector((state) => state.auth.user);
@@ -40,9 +41,17 @@ export const RewardCard = ({ img, name, desc, price, rewardId }) => {
             },
           }
         );
-        console.log(data);
+        const res = await axiosRequest.post(
+          "/user/get-user-auth",
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+        dispatch(setUser(res.data.user));
         dispatch(hideLoading());
-        window.location.reload(false);
       } else {
         dispatch(hideLoading());
         console.log("nope");
